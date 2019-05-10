@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class SesionTipo implements Serializable{
     private int tCalentamiento, numEjercicios, tEjercicios, tDescanso,
                 numCircuitos, tDCircuitos;
+    private String nombre;
     
     public SesionTipo(int tC, int nE, int tE, int tD, int nC, int tDC) {
         this.tCalentamiento = tC; this.numEjercicios = nE;
@@ -18,6 +19,7 @@ public class SesionTipo implements Serializable{
     public int getTDescanso() {return this.tDescanso;}
     public int getNumCircuitos() {return this.numCircuitos;}
     public int getTDCircuitos() {return this.tDCircuitos;}
+    public String getNombre() {return this.nombre;}
     
     public void setTCalentamiento(int tC) {this.tCalentamiento = tC;}
     public void setNumEjercicios(int nE) {this.numEjercicios = nE;}
@@ -25,4 +27,5 @@ public class SesionTipo implements Serializable{
     public void setTDescanso(int tD) {this.tDescanso = tD;}
     public void setNumCircuitos(int nC) {this.numCircuitos = nC;}
     public void setTDCircuitos(int tDC) {this.tCalentamiento = tDC;}
+    public void setNombre(String n) {this.nombre = n;}
 }

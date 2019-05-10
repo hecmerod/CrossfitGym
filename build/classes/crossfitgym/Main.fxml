@@ -2,13 +2,110 @@
 
 <?import java.lang.*?>
 <?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1" fx:controller="crossfitgym.Controllers.MainController">
-    <children>
-        <Button layoutX="126" layoutY="90" text="Click Me!" onAction="#handleButtonAction" fx:id="button" />
-        <Label layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="label" />
-    </children>
-</AnchorPane>
+<GridPane prefHeight="909.0" prefWidth="1625.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="crossfitgym.Controllers.MainController">
+  <children>
+    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0">
+      <children>
+        <VBox prefHeight="455.0" prefWidth="280.0">
+          <children>
+            <VBox alignment="CENTER" prefHeight="455.0" prefWidth="280.0">
+              <children>
+                <Button mnemonicParsing="false" onAction="#crearGrupos" prefHeight="51.0" prefWidth="198.0" text="Crear Grupos">
+                  <font>
+                    <Font size="25.0" fx:id="x1" />
+                  </font>
+                  <VBox.margin>
+                    <Insets bottom="70.0" />
+                  </VBox.margin>
+                </Button>
+                <Button font="$x1" mnemonicParsing="false" onAction="#crearSesion" prefHeight="51.0" prefWidth="204.0" text="Crear Sesión" />
+              </children>
+            </VBox>
+          </children>
+        </VBox>
+        <Separator orientation="VERTICAL" prefHeight="200.0" />
+        <VBox alignment="TOP_CENTER" prefHeight="455.0" prefWidth="490.0">
+          <children>
+            <Label font="$x1" text="Grupos">
+              <VBox.margin>
+                <Insets bottom="10.0" top="20.0" />
+              </VBox.margin>
+            </Label>
+            <TextField fx:id="gruposBuscador" maxWidth="400.0" onKeyTyped="#buscarGrupos" prefWidth="200.0">
+              <VBox.margin>
+                <Insets bottom="5.0" />
+              </VBox.margin>
+            </TextField>
+            <ListView fx:id="listViewGrupos" maxWidth="400.0" prefHeight="330.0" prefWidth="583.0" />
+          </children>
+        </VBox>
+        <VBox alignment="TOP_CENTER" prefHeight="455.0" prefWidth="506.0">
+          <children>
+            <Label font="$x1" text="Sesiones">
+              <VBox.margin>
+                <Insets bottom="10.0" top="20.0" />
+              </VBox.margin>
+            </Label>
+            <TextField id="listViewSesiones" fx:id="sesionesBuscador" maxWidth="400.0" onKeyTyped="#buscarSesiones" prefWidth="200.0">
+              <VBox.margin>
+                <Insets bottom="5.0" />
+              </VBox.margin>
+            </TextField>
+            <ListView fx:id="listViewSesiones" maxWidth="400.0" prefHeight="330.0" prefWidth="583.0" />
+          </children>
+        </VBox>
+        <HBox alignment="CENTER" prefHeight="455.0" prefWidth="321.0">
+          <children>
+            <Button mnemonicParsing="false" onAction="#go" prefHeight="122.0" prefWidth="149.0" text="GO!">
+              <font>
+                <Font name="System Bold" size="40.0" />
+              </font>
+            </Button>
+          </children>
+        </HBox>
+      </children>
+    </HBox>
+    <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1">
+      <children>
+        <Separator prefWidth="200.0" />
+      </children>
+    </VBox>
+    <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+      <children>
+        <Label font="$x1" text="Gráficas del grupo">
+          <VBox.margin>
+            <Insets top="10.0" />
+          </VBox.margin>
+        </Label>
+      </children>
+    </VBox>
+    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1">
+      <children>
+        <Separator orientation="VERTICAL" prefHeight="200.0" />
+      </children>
+    </HBox>
+    <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <children>
+        <Label font="$x1" text="Datos de la sesión">
+          <VBox.margin>
+            <Insets top="10.0" />
+          </VBox.margin>
+        </Label>
+      </children>
+    </VBox>
+  </children>
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+</GridPane>

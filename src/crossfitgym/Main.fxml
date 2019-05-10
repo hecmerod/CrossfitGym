@@ -8,7 +8,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane prefHeight="909.0" prefWidth="1625.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+<GridPane prefHeight="909.0" prefWidth="1625.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="crossfitgym.Controllers.MainController">
   <children>
     <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0">
       <children>
@@ -16,7 +16,7 @@
           <children>
             <VBox alignment="CENTER" prefHeight="455.0" prefWidth="280.0">
               <children>
-                <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="198.0" text="Crear Grupos">
+                <Button mnemonicParsing="false" onAction="#crearGrupos" prefHeight="51.0" prefWidth="198.0" text="Crear Grupos">
                   <font>
                     <Font size="25.0" fx:id="x1" />
                   </font>
@@ -24,7 +24,7 @@
                     <Insets bottom="70.0" />
                   </VBox.margin>
                 </Button>
-                <Button font="$x1" mnemonicParsing="false" prefHeight="51.0" prefWidth="204.0" text="Crear Sesión" />
+                <Button font="$x1" mnemonicParsing="false" onAction="#crearSesion" prefHeight="51.0" prefWidth="204.0" text="Crear Sesión" />
               </children>
             </VBox>
           </children>
@@ -37,12 +37,12 @@
                 <Insets bottom="10.0" top="20.0" />
               </VBox.margin>
             </Label>
-            <TextField maxWidth="400.0" prefWidth="200.0">
+            <TextField fx:id="gruposBuscador" maxWidth="400.0" onKeyTyped="#buscarGrupos" prefWidth="200.0">
               <VBox.margin>
                 <Insets bottom="5.0" />
               </VBox.margin>
             </TextField>
-            <ListView maxWidth="400.0" prefHeight="330.0" prefWidth="583.0" />
+            <ListView fx:id="listViewGrupos" maxWidth="400.0" prefHeight="330.0" prefWidth="583.0" />
           </children>
         </VBox>
         <VBox alignment="TOP_CENTER" prefHeight="455.0" prefWidth="506.0">
@@ -52,17 +52,17 @@
                 <Insets bottom="10.0" top="20.0" />
               </VBox.margin>
             </Label>
-            <TextField maxWidth="400.0" prefWidth="200.0">
+            <TextField id="listViewSesiones" fx:id="sesionesBuscador" maxWidth="400.0" onKeyTyped="#buscarSesiones" prefWidth="200.0">
               <VBox.margin>
                 <Insets bottom="5.0" />
               </VBox.margin>
             </TextField>
-            <ListView maxWidth="400.0" prefHeight="330.0" prefWidth="583.0" />
+            <ListView fx:id="listViewSesiones" maxWidth="400.0" prefHeight="330.0" prefWidth="583.0" />
           </children>
         </VBox>
         <HBox alignment="CENTER" prefHeight="455.0" prefWidth="321.0">
           <children>
-            <Button mnemonicParsing="false" prefHeight="122.0" prefWidth="149.0" text="GO!">
+            <Button mnemonicParsing="false" onAction="#go" prefHeight="122.0" prefWidth="149.0" text="GO!">
               <font>
                 <Font name="System Bold" size="40.0" />
               </font>
