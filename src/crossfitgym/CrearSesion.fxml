@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane prefHeight="909.0" prefWidth="1625.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <children>
+    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0">
+      <children>
+        <HBox prefHeight="455.0" prefWidth="1055.0">
+          <children>
+            <VBox prefHeight="455.0" prefWidth="226.0">
+              <children>
+                <Label text="Tiempo calentamiento:">
+                  <font>
+                    <Font size="20.0" fx:id="x1" />
+                  </font>
+                  <VBox.margin>
+                    <Insets bottom="60.0" left="5.0" fx:id="x2" />
+                  </VBox.margin>
+                </Label>
+                <Label font="$x1" text="Tiempo por ejercicio:" VBox.margin="$x2" />
+                <Label font="$x1" text="Tiempo de dedescanso:" VBox.margin="$x2" />
+                <Label font="$x1" text="Nº circuitos:" VBox.margin="$x2" />
+                <Label font="$x1" text="Tiempo de descanso">
+                  <VBox.margin>
+                    <Insets left="5.0" />
+                  </VBox.margin>
+                </Label>
+                <Label font="$x1" text="entre circuitos:">
+                  <VBox.margin>
+                    <Insets bottom="50.0" left="5.0" />
+                  </VBox.margin>
+                </Label>
+              </children>
+            </VBox>
+            <VBox prefHeight="455.0" prefWidth="160.0">
+              <children>
+                <HBox prefHeight="87.0" prefWidth="160.0">
+                  <children>
+                    <TextField prefHeight="27.0" prefWidth="115.0">
+                      <HBox.margin>
+                        <Insets right="5.0" top="5.0" />
+                      </HBox.margin>
+                    </TextField>
+                    <Label font="$x1" text="s." />
+                    <Label text="*" textFill="RED">
+                      <HBox.margin>
+                        <Insets top="10.0" fx:id="x3" />
+                      </HBox.margin>
+                    </Label>
+                  </children>
+                </HBox>
+                <HBox prefHeight="87.0" prefWidth="160.0">
+                  <children>
+                    <TextField prefHeight="27.0" prefWidth="115.0">
+                      <HBox.margin>
+                        <Insets right="5.0" top="5.0" />
+                      </HBox.margin>
+                    </TextField>
+                    <Label font="$x1" text="s." />
+                    <Label text="*" textFill="RED" HBox.margin="$x3" />
+                  </children>
+                </HBox>
+                <HBox prefHeight="87.0" prefWidth="160.0">
+                  <children>
+                    <TextField prefHeight="27.0" prefWidth="115.0">
+                      <HBox.margin>
+                        <Insets right="5.0" top="5.0" />
+                      </HBox.margin>
+                    </TextField>
+                    <Label font="$x1" text="s." />
+                    <Label text="*" textFill="RED" HBox.margin="$x3" />
+                  </children>
+                </HBox>
+                <HBox prefHeight="87.0" prefWidth="160.0">
+                  <children>
+                    <TextField prefHeight="27.0" prefWidth="115.0">
+                      <HBox.margin>
+                        <Insets right="5.0" top="5.0" />
+                      </HBox.margin>
+                    </TextField>
+                    <Label text="*" textFill="RED">
+                      <HBox.margin>
+                        <Insets left="12.0" top="10.0" />
+                      </HBox.margin>
+                    </Label>
+                  </children>
+                </HBox>
+                <HBox prefHeight="87.0" prefWidth="160.0">
+                  <children>
+                    <TextField prefHeight="27.0" prefWidth="115.0">
+                      <HBox.margin>
+                        <Insets right="5.0" top="5.0" />
+                      </HBox.margin>
+                    </TextField>
+                    <Label font="$x1" text="s." />
+                    <Label text="*" textFill="RED" HBox.margin="$x3" />
+                  </children>
+                  <VBox.margin>
+                    <Insets top="25.0" />
+                  </VBox.margin>
+                </HBox>
+              </children>
+            </VBox>
+            <VBox alignment="TOP_LEFT" prefHeight="455.0" prefWidth="635.0">
+              <children>
+                <HBox prefHeight="35.0" prefWidth="635.0">
+                  <children>
+                    <Label text="Ejercicios:">
+                      <font>
+                        <Font size="25.0" fx:id="x5" />
+                      </font>
+                    </Label>
+                  </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="104.0" prefWidth="670.0">
+                  <children>
+                    <Button mnemonicParsing="false" prefHeight="85.0" prefWidth="250.0" text="Button">
+                      <HBox.margin>
+                        <Insets left="10.0" right="10.0" fx:id="x4" />
+                      </HBox.margin>
+                    </Button>
+                    <Button mnemonicParsing="false" prefHeight="85.0" prefWidth="250.0" text="Button" HBox.margin="$x4" />
+                    <Button mnemonicParsing="false" prefHeight="85.0" prefWidth="250.0" text="Button" HBox.margin="$x4" />
+                    <Button mnemonicParsing="false" prefHeight="85.0" prefWidth="250.0" text="Button" HBox.margin="$x4" />
+                    <Button mnemonicParsing="false" prefHeight="85.0" prefWidth="250.0" text="Button" HBox.margin="$x4" />
+                    <Button mnemonicParsing="false" prefHeight="85.0" prefWidth="250.0" text="Button" HBox.margin="$x4" />
+                  </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="104.0" prefWidth="670.0">
+                  <children>
+                    <Button mnemonicParsing="false" prefHeight="85.0" prefWidth="250.0" text="Button">
+                      <HBox.margin>
+                        <Insets left="10.0" right="10.0" fx:id="x4" />
+                      </HBox.margin>
+                    </Button>
+                    <Button mnemonicParsing="false" prefHeight="85.0" prefWidth="250.0" text="Button" HBox.margin="$x4" />
+                    <Button mnemonicParsing="false" prefHeight="85.0" prefWidth="250.0" text="Button" HBox.margin="$x4" />
+                    <Button mnemonicParsing="false" prefHeight="85.0" prefWidth="250.0" text="Button" HBox.margin="$x4" />
+                    <Button mnemonicParsing="false" prefHeight="85.0" prefWidth="250.0" text="Button" HBox.margin="$x4" />
+                    <Button mnemonicParsing="false" prefHeight="85.0" prefWidth="250.0" text="Button" HBox.margin="$x4" />
+                  </children>
+                  <VBox.margin>
+                    <Insets />
+                  </VBox.margin>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="104.0" prefWidth="670.0">
+                  <children>
+                    <Button mnemonicParsing="false" prefHeight="85.0" prefWidth="250.0" text="Button">
+                      <HBox.margin>
+                        <Insets left="10.0" right="10.0" fx:id="x4" />
+                      </HBox.margin>
+                    </Button>
+                    <Button mnemonicParsing="false" prefHeight="85.0" prefWidth="250.0" text="Button" HBox.margin="$x4" />
+                    <Button mnemonicParsing="false" prefHeight="85.0" prefWidth="250.0" text="Button" HBox.margin="$x4" />
+                    <Button mnemonicParsing="false" prefHeight="85.0" prefWidth="250.0" text="Button" HBox.margin="$x4" />
+                    <Button mnemonicParsing="false" prefHeight="85.0" prefWidth="250.0" text="Button" HBox.margin="$x4" />
+                    <Button mnemonicParsing="false" prefHeight="85.0" prefWidth="250.0" text="Button" HBox.margin="$x4" />
+                  </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="104.0" prefWidth="670.0">
+                  <children>
+                    <Button mnemonicParsing="false" prefHeight="85.0" prefWidth="250.0" text="Button">
+                      <HBox.margin>
+                        <Insets left="10.0" right="10.0" fx:id="x4" />
+                      </HBox.margin>
+                    </Button>
+                    <Button mnemonicParsing="false" prefHeight="85.0" prefWidth="250.0" text="Button" HBox.margin="$x4" />
+                    <Button mnemonicParsing="false" prefHeight="85.0" prefWidth="250.0" text="Button" HBox.margin="$x4" />
+                    <Button mnemonicParsing="false" prefHeight="85.0" prefWidth="250.0" text="Button" HBox.margin="$x4" />
+                    <Button mnemonicParsing="false" prefHeight="85.0" prefWidth="250.0" text="Button" HBox.margin="$x4" />
+                    <Button mnemonicParsing="false" prefHeight="85.0" prefWidth="250.0" text="Button" HBox.margin="$x4" />
+                  </children>
+                </HBox>
+              </children>
+              <HBox.margin>
+                <Insets left="10.0" />
+              </HBox.margin>
+            </VBox>
+          </children>
+        </HBox>
+        <VBox prefHeight="455.0" prefWidth="223.0">
+          <children>
+            <ListView prefHeight="359.0" prefWidth="223.0">
+              <VBox.margin>
+                <Insets bottom="10.0" top="40.0" />
+              </VBox.margin>
+            </ListView>
+            <Button font="$x1" mnemonicParsing="false" prefHeight="34.0" prefWidth="115.0" text="Eliminar" />
+          </children>
+          <HBox.margin>
+            <Insets right="40.0" />
+          </HBox.margin>
+        </VBox>
+        <Separator orientation="VERTICAL" prefHeight="200.0" />
+        <VBox prefHeight="455.0" prefWidth="280.0">
+          <children>
+            <VBox alignment="CENTER" prefHeight="455.0" prefWidth="235.0">
+              <children>
+                <Button disable="false" font="$x5" mnemonicParsing="false" prefHeight="51.0" prefWidth="198.0" text="Crear" visible="true">
+                  <VBox.margin>
+                    <Insets bottom="70.0" />
+                  </VBox.margin>
+                </Button>
+                <Button disable="false" font="$x5" mnemonicParsing="false" prefHeight="51.0" prefWidth="204.0" text="Cancelar" />
+              </children>
+            </VBox>
+          </children>
+        </VBox>
+      </children>
+    </HBox>
+    <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1">
+      <children>
+        <Separator prefWidth="200.0" />
+      </children>
+    </VBox>
+  </children>
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+</GridPane>

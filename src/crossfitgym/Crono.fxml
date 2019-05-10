@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<StackPane prefHeight="909.0" prefWidth="1625.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <children>
+    <HBox prefHeight="100.0" prefWidth="200.0">
+      <children>
+        <VBox alignment="TOP_CENTER" prefHeight="909.0" prefWidth="395.0" />
+        <VBox prefHeight="909.0" prefWidth="1013.0">
+          <children>
+            <GridPane prefHeight="908.9999000000025" prefWidth="954.0">
+              <children>
+                <HBox alignment="CENTER" prefHeight="615.0" prefWidth="954.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                  <children>
+                    <Circle fill="DODGERBLUE" radius="310.5" stroke="BLACK" strokeType="INSIDE" />
+                  </children>
+                </HBox>
+                <HBox alignment="TOP_CENTER" prefHeight="71.0" prefWidth="954.0" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.rowSpan="1">
+                  <children>
+                    <Label text="Grupo">
+                      <font>
+                        <Font size="20.0" fx:id="x1" />
+                      </font>
+                      <HBox.margin>
+                        <Insets right="10.0" fx:id="x2" />
+                      </HBox.margin>
+                    </Label>
+                    <Label font="$x1" text="Nombre del grupo">
+                      <HBox.margin>
+                        <Insets right="50.0" />
+                      </HBox.margin>
+                    </Label>
+                    <Label font="$x1" text="realizando la sesion" HBox.margin="$x2" />
+                    <Label font="$x1" text="Nombre de la sesion" />
+                  </children>
+                  <padding>
+                    <Insets top="20.0" />
+                  </padding>
+                </HBox>
+                <VBox alignment="TOP_CENTER" prefHeight="615.0" prefWidth="954.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                  <children>
+                    <Label minHeight="215.0" prefHeight="278.0" text="00:00">
+                      <font>
+                        <Font size="200.0" />
+                      </font>
+                      <VBox.margin>
+                        <Insets top="130.0" />
+                      </VBox.margin>
+                    </Label>
+                    <HBox alignment="CENTER" prefHeight="161.0" prefWidth="954.0">
+                      <children>
+                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Button">
+                          <HBox.margin>
+                            <Insets right="20.0" fx:id="x3" />
+                          </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Button" HBox.margin="$x3" />
+                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Button" />
+                      </children>
+                    </HBox>
+                  </children>
+                </VBox>
+              </children>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="302.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="775.0" minHeight="10.0" prefHeight="677.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="303.0" minHeight="10.0" prefHeight="169.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+          </children>
+        </VBox>
+        <VBox prefHeight="909.0" prefWidth="395.0" />
+      </children>
+    </HBox>
+  </children>
+</StackPane>
