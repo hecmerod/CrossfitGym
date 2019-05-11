@@ -129,46 +129,46 @@
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="104.0" prefWidth="670.0">
                   <children>
-                    <Button fx:id="SitUps" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Sit-ups">
+                    <Button id="Sit Ups" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Sit-ups">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Squats" HBox.margin="$x4" />
-                    <Button mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Chin ups" HBox.margin="$x4" />
-                    <Button mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Push ups" HBox.margin="$x4" />
-                    <Button mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Jump knee tucks" HBox.margin="$x4" />
-                    <Button mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Punches" HBox.margin="$x4" />
+                    <Button id="Squats" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Squats" HBox.margin="$x4" />
+                    <Button id="Chin-ups" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Chin ups" HBox.margin="$x4" />
+                    <Button id="Push-ups" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Push ups" HBox.margin="$x4" />
+                    <Button id="Jump knee tucks" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Jump knee tucks" HBox.margin="$x4" />
+                    <Button id="Punches" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Punches" HBox.margin="$x4" />
                   </children>
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="104.0" prefWidth="670.0">
                   <children>
-                    <Button fx:id="ElbowPlank" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Elbow Plank">
+                    <Button id="Elbow plank" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Elbow Plank">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Deadlift">
+                    <Button id="Deadlift" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Deadlift">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Neutral Grip Chin ups">
+                    <Button id="Neutral grip chin-ups" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Neutral Grip Chin ups">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Close Grip Push ups">
+                    <Button id="Close grip push-ups" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Close Grip Push ups">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="high knees">
+                    <Button id="High knees" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="high knees">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Turning Kicks">
+                    <Button id="Turning kicks" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Turning Kicks">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
@@ -180,32 +180,32 @@
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="104.0" prefWidth="670.0">
                   <children>
-                    <Button mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Leg Raises">
+                    <Button id="Leg raises" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Leg Raises">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Sumo Deadlift">
+                    <Button id="Sumo deadlift" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Sumo Deadlift">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Wide Grip chin ups">
+                    <Button id="Wide grip chin-ups" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Wide Grip chin ups">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Dips">
+                    <Button id="Dips" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Dips">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="lunges">
+                    <Button id="Lunges" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="lunges">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Ball Passes">
+                    <Button id="Ball passes" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Ball Passes">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
@@ -214,32 +214,32 @@
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="104.0" prefWidth="670.0">
                   <children>
-                    <Button mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Bicycle Crunches">
+                    <Button id="Bicycle Crunches" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Bicycle Crunches">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Box jumps">
+                    <Button id="Box jumps" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Box jumps">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Weighted chin ups">
+                    <Button id="Weighted chin-ips" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Weighted chin ups">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Bench Dips">
+                    <Button id="Bench dips" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Bench Dips">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Fly Steps">
+                    <Button id="Fly steps" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Fly Steps">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Button">
+                    <Button id="WIP" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Button">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
@@ -258,12 +258,12 @@
         </HBox>
         <VBox prefHeight="455.0" prefWidth="223.0">
           <children>
-            <ListView prefHeight="298.0" prefWidth="221.0">
+            <ListView fx:id="listViewEjercicios" prefHeight="298.0" prefWidth="221.0">
               <VBox.margin>
                 <Insets bottom="10.0" top="70.0" />
               </VBox.margin>
             </ListView>
-            <Button font="$x1" mnemonicParsing="false" prefHeight="34.0" prefWidth="115.0" text="Eliminar" />
+            <Button font="$x1" mnemonicParsing="false" onAction="#eliminarEjercicio" prefHeight="34.0" prefWidth="115.0" text="Eliminar" />
           </children>
           <HBox.margin>
             <Insets right="40.0" />
@@ -274,12 +274,12 @@
           <children>
             <VBox alignment="CENTER" prefHeight="455.0" prefWidth="235.0">
               <children>
-                <Button disable="false" font="$x5" mnemonicParsing="false" prefHeight="51.0" prefWidth="198.0" text="Crear" visible="true">
+                <Button disable="false" font="$x5" mnemonicParsing="false" onAction="#crear" prefHeight="51.0" prefWidth="198.0" text="Crear" visible="true">
                   <VBox.margin>
                     <Insets bottom="70.0" />
                   </VBox.margin>
                 </Button>
-                <Button disable="false" font="$x5" mnemonicParsing="false" prefHeight="51.0" prefWidth="204.0" text="Cancelar" />
+                <Button disable="false" font="$x5" mnemonicParsing="false" onAction="#atras" prefHeight="51.0" prefWidth="204.0" text="Cancelar" />
               </children>
             </VBox>
           </children>

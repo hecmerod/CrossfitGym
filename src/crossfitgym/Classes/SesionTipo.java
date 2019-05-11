@@ -1,16 +1,21 @@
 package crossfitgym.Classes;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class SesionTipo implements Serializable{
     private int tCalentamiento, numEjercicios, tEjercicios, tDescanso,
                 numCircuitos, tDCircuitos;
     private String nombre;
     
-    public SesionTipo(int tC, int nE, int tE, int tD, int nC, int tDC) {
+    private List<String> ejercicios;
+    
+    public SesionTipo(String nombre, int tC, int nE, int tE, int tD, int nC, int tDC,
+                      List<String> e) {
         this.tCalentamiento = tC; this.numEjercicios = nE;
         this.tEjercicios = tE; this.tDescanso = tD; this.numCircuitos = nC;
-        this.tDCircuitos = tDC;        
+        this.tDCircuitos = tDC;
+        this.ejercicios = e;
     }
     
     public int getTCalentamiento() {return this.tCalentamiento;}

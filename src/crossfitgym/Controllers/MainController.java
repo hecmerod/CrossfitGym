@@ -50,7 +50,7 @@ public class MainController implements Initializable {
         
         gruposStringList = new ArrayList<>();
         sesionesStringList = new ArrayList<>();
-        
+          
         for(Grupo grupo : this.gym.getGrupos()) 
             gruposStringList.add(grupo.getNombre());
         for(SesionTipo sesionT : this.gym.getTiposSesion())
@@ -87,7 +87,7 @@ public class MainController implements Initializable {
             
             CrearSesionController controller = cargador
                     .<CrearSesionController>getController();
-            controller.initStage(this.stage);
+            controller.initStage(this.stage, this.gym);
             
             Scene scene = new Scene(root);
             
