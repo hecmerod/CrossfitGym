@@ -5,6 +5,7 @@
  */
 package crossfitgym;
 
+import crossfitgym.Controllers.MainController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,11 +20,15 @@ public class CrossfitGym extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml")); 
         
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(loader.load());   
+        
+        MainController mainController = loader.<MainController>getController(); 
+        mainController.initStage(stage);
         
         stage.setScene(scene);
+        stage.setTitle("ETSINF Crossfit");
         stage.show();
     }
 

@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.text.Font;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -19,6 +20,8 @@ import javafx.scene.text.Font;
  */
 public class CronoController implements Initializable {
 
+    private Stage stage;
+    
     @FXML
     private Font x1;
     @FXML
@@ -33,5 +36,7 @@ public class CronoController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+    
+    public void initStage(Stage s) {this.stage = s;}
     
 }

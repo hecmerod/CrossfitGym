@@ -37,7 +37,7 @@
                 <Insets bottom="10.0" top="20.0" />
               </VBox.margin>
             </Label>
-            <TextField fx:id="gruposBuscador" maxWidth="400.0" onKeyTyped="#buscarGrupos" prefWidth="200.0">
+            <TextField fx:id="gruposBuscador" maxWidth="400.0" onKeyReleased="#buscarGrupos" prefWidth="200.0">
               <VBox.margin>
                 <Insets bottom="5.0" />
               </VBox.margin>
@@ -52,7 +52,7 @@
                 <Insets bottom="10.0" top="20.0" />
               </VBox.margin>
             </Label>
-            <TextField id="listViewSesiones" fx:id="sesionesBuscador" maxWidth="400.0" onKeyTyped="#buscarSesiones" prefWidth="200.0">
+            <TextField id="listViewSesiones" fx:id="sesionesBuscador" maxWidth="400.0" onKeyReleased="#buscarSesiones" prefWidth="200.0">
               <VBox.margin>
                 <Insets bottom="5.0" />
               </VBox.margin>

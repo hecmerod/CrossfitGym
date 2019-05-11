@@ -8,7 +8,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane prefHeight="909.0" prefWidth="1625.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="crossfitgym.CrearGrupoController">
+<GridPane prefHeight="909.0" prefWidth="1625.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="crossfitgym.Controllers.CrearGrupoController">
   <children>
     <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0">
       <children>
@@ -26,7 +26,7 @@
                         <Insets left="20.0" right="20.0" fx:id="x2" />
                       </HBox.margin>
                     </Label>
-                    <TextField prefWidth="128.0" />
+                    <TextField fx:id="codigo" prefWidth="128.0" />
                   </children>
                 </HBox>
                 <Label font="$x1" text="Descripción">
@@ -34,7 +34,7 @@
                     <Insets left="20.0" />
                   </VBox.margin>
                 </Label>
-                <TextArea prefHeight="340.0" prefWidth="471.0" wrapText="true" VBox.margin="$x2" />
+                <TextArea fx:id="descripcion" prefHeight="340.0" prefWidth="471.0" wrapText="true" VBox.margin="$x2" />
               </children>
               <HBox.margin>
                 <Insets bottom="20.0" left="25.0" top="20.0" />
@@ -47,7 +47,7 @@
           <children>
             <VBox alignment="CENTER" prefHeight="455.0" prefWidth="385.0">
               <children>
-                <Button disable="false" mnemonicParsing="false" prefHeight="51.0" prefWidth="198.0" text="Crear" visible="true">
+                <Button disable="false" mnemonicParsing="false" onAction="#crear" prefHeight="51.0" prefWidth="198.0" text="Crear" visible="true">
                   <font>
                     <Font size="25.0" fx:id="x5" />
                   </font>
@@ -55,7 +55,7 @@
                     <Insets bottom="70.0" />
                   </VBox.margin>
                 </Button>
-                <Button disable="false" font="$x5" mnemonicParsing="false" prefHeight="51.0" prefWidth="204.0" text="Cancelar" />
+                <Button disable="false" font="$x5" mnemonicParsing="false" onAction="#atras" prefHeight="51.0" prefWidth="204.0" text="Cancelar" />
               </children>
             </VBox>
           </children>
