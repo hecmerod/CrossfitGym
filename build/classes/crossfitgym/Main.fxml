@@ -57,7 +57,7 @@
                 <Insets bottom="5.0" />
               </VBox.margin>
             </TextField>
-            <ListView fx:id="listViewSesiones" maxWidth="400.0" prefHeight="330.0" prefWidth="583.0" />
+            <ListView fx:id="listViewSesiones" maxWidth="400.0" onMouseClicked="#isSelected" prefHeight="330.0" prefWidth="583.0" />
           </children>
         </VBox>
         <HBox alignment="CENTER" prefHeight="455.0" prefWidth="321.0">
@@ -90,13 +90,72 @@
         <Separator orientation="VERTICAL" prefHeight="200.0" />
       </children>
     </HBox>
-    <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+    <VBox fx:id="datosDeSesion" alignment="TOP_CENTER" disable="false" prefHeight="200.0" prefWidth="100.0" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
       <children>
-        <Label font="$x1" text="Datos de la sesión">
+        <Label fx:id="nombreSesion" text="Nombre de la sesión">
+          <font>
+            <Font name="System Bold" size="30.0" />
+          </font>
           <VBox.margin>
             <Insets top="10.0" />
           </VBox.margin>
         </Label>
+        <HBox alignment="CENTER" prefHeight="403.0" prefWidth="812.0" visible="true">
+          <children>
+            <VBox alignment="CENTER" disable="false" prefHeight="403.0" prefWidth="362.0">
+              <children>
+                <GridPane prefHeight="365.0" prefWidth="381.0">
+                  <children>
+                    <VBox alignment="CENTER_LEFT" prefHeight="403.0" prefWidth="413.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                      <children>
+                        <Label fx:id="tC" text="Tiempo de calentamiento:">
+                          <font>
+                            <Font size="20.0" fx:id="x2" />
+                          </font>
+                        </Label>
+                      </children>
+                    </VBox>
+                    <VBox alignment="CENTER_LEFT" prefHeight="403.0" prefWidth="413.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                      <children>
+                        <Label fx:id="tE" font="$x2" text="Tiempo por ejercicio:" />
+                      </children>
+                    </VBox>
+                    <VBox alignment="CENTER_LEFT" prefHeight="403.0" prefWidth="413.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                      <children>
+                        <Label fx:id="tD" font="$x2" text="Tiempo de descanso:" />
+                      </children>
+                    </VBox>
+                    <VBox alignment="CENTER_LEFT" prefHeight="403.0" prefWidth="413.0" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                      <children>
+                        <Label fx:id="nC" font="$x2" text="Número de circuitos:" />
+                      </children>
+                    </VBox>
+                    <VBox alignment="CENTER_LEFT" prefHeight="403.0" prefWidth="413.0" GridPane.columnIndex="0" GridPane.rowIndex="4">
+                      <children>
+                        <Label fx:id="tDC" font="$x2" prefWidth="362.0" text="Tiempo de descanso entre circuitos:" />
+                      </children>
+                    </VBox>
+                  </children>
+                  <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="411.0" minWidth="10.0" prefWidth="384.0" />
+                  </columnConstraints>
+                  <rowConstraints>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  </rowConstraints>
+                </GridPane>
+              </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="389.0" prefWidth="381.0">
+              <children>
+                <ListView fx:id="ejerciciosListView" prefHeight="373.0" prefWidth="406.0" />
+              </children>
+            </VBox>
+          </children>
+        </HBox>
       </children>
     </VBox>
   </children>

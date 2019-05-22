@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Font;
@@ -33,6 +34,8 @@ public class CrearGrupoController implements Initializable {
     private TextArea descripcion;
     
     private Gym gym;
+    @FXML
+    private Label errCodigo;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -41,22 +44,26 @@ public class CrearGrupoController implements Initializable {
 
     @FXML
     private void crear(ActionEvent event) {
-        this.gym.getGrupos().
-                add(new Grupo(codigo.getText(), descripcion.getText()));
-        try {
-            FXMLLoader cargador = new FXMLLoader(getClass()
+        
+        if(codigo.getText().equals("")) errCodigo.setText("*");
+        else {
+            this.gym.getGrupos().
+                    add(new Grupo(codigo.getText(), descripcion.getText()));
+            try {
+                FXMLLoader cargador = new FXMLLoader(getClass()
                         .getResource("/crossfitgym/Main.fxml"));
-            Parent root = cargador.load();
+                Parent root = cargador.load();
             
-            MainController controller = cargador
-                    .<MainController>getController();
-            controller.initStage(this.stage, gym);
+                MainController controller = cargador
+                        .<MainController>getController();
+                controller.initStage(this.stage, gym);
             
-            Scene scene = new Scene(root);
+                Scene scene = new Scene(root);
             
-            this.stage.setScene(scene);
-            this.stage.show();
-        }catch(IOException e){}
+                this.stage.setScene(scene);
+                this.stage.show();
+            }catch(IOException e){}
+        }        
     }
 
     @FXML

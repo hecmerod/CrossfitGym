@@ -6,9 +6,11 @@
 package crossfitgym;
 
 import crossfitgym.Controllers.MainController;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -18,23 +20,34 @@ import javafx.stage.Stage;
  */
 public class CrossfitGym extends Application {
     
+    MainController mainController;
+    
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml")); 
         
         Scene scene = new Scene(loader.load());   
         
-        MainController mainController = loader.<MainController>getController(); 
+        mainController = loader.<MainController>getController(); 
         mainController.initStage(stage);
         
         stage.setScene(scene);
-        stage.setTitle("ETSINF Crossfit");
+        stage.setTitle("ETSINF Crossfit"); 
         stage.show();
     }
+    
+    @Override
+    public void stop(){
+        try { 
+            FileOutputStream fileOut = new FileOutputStream(System.getProperty("user.dir") 
+                                                    + "/DB/gymObj");
+            ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
+            objectOut.writeObject(mainController.getGym());
+            objectOut.close();
+            System.out.println("GUARDADO CON ÉXITO");
+        } catch (IOException ex) {System.out.println("FALLO EN EL GUARDADO");} 
+    }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         launch(args);
     }

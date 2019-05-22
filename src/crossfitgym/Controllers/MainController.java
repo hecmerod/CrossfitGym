@@ -3,7 +3,9 @@ package crossfitgym.Controllers;
 import crossfitgym.Classes.Grupo;
 import crossfitgym.Classes.Gym;
 import crossfitgym.Classes.SesionTipo;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +22,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
@@ -36,18 +40,47 @@ public class MainController implements Initializable {
     private List<String> gruposStringList, sesionesStringList;
     private ObservableList<String> gruposObsList, sesionesObsList;
     private Gym gym;
-
-
+    @FXML
+    private VBox datosDeSesion;
+    @FXML
+    private Label nombreSesion;
+    @FXML
+    private Label tC;
+    @FXML
+    private Font x2;
+    @FXML
+    private Label tE;
+    @FXML
+    private Label tD;
+    @FXML
+    private Label nC;
+    @FXML
+    private Label tDC;
+    @FXML
+    private ListView<String> ejerciciosListView;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        if(gym == null) gym = new Gym();
-    }    
+        if(gym == null) try { 
+            FileInputStream fileIn = new FileInputStream(System.getProperty("user.dir") 
+                                        + "/DB/gymObj");
+            ObjectInputStream objectIn = new ObjectInputStream(fileIn);
+            
+            if(objectIn == null) {gym = new Gym(); 
+            System.out.println("crossfitgym.Controllers.MainController.initialize()");}
+            else { gym = (Gym) objectIn.readObject(); initListViews();}
+            objectIn.close();
+            
+            
+        } catch (Exception ex) { gym = new Gym(); }
+    }
     
     public void initStage(Stage s) {this.stage = s;}
-    public void initStage(Stage s, Gym g) {
-        this.stage = s; this.gym = g;
-        
+    public void initStage(Stage s, Gym g) { 
+        this.stage = s; this.gym = g; 
+        initListViews();
+    }
+    protected void initListViews() {
         gruposStringList = new ArrayList<>();
         sesionesStringList = new ArrayList<>();
           
@@ -55,14 +88,14 @@ public class MainController implements Initializable {
             gruposStringList.add(grupo.getNombre());
         for(SesionTipo sesionT : this.gym.getTiposSesion())
             sesionesStringList.add(sesionT.getNombre());
-        
+
         gruposObsList = FXCollections.observableArrayList(gruposStringList);
         sesionesObsList = FXCollections.observableArrayList(sesionesStringList);
         
         listViewGrupos.setItems(gruposObsList);
         listViewSesiones.setItems(sesionesObsList); 
     }
-
+    
     @FXML private void crearGrupos(ActionEvent event) {          
         try {
             FXMLLoader cargador = new FXMLLoader(getClass()
@@ -126,14 +159,10 @@ public class MainController implements Initializable {
         
         //Si no está vacio
         if(!gruposBuscador.getText().equals("") && !gruposStringList.isEmpty()){
-            String aux;
-            
             int i = gruposStringList.size() - 1;
             while (i >= 0) {
-                //System.err.println(gruposStringList.get(i));
                 if(!gruposStringList.get(i).contains(gruposBuscador.getText())){
-                    gruposObsList.remove(i);
-                    gruposStringList.remove(i);
+                    gruposObsList.remove(i); gruposStringList.remove(i);
                 }
                 i--;
             } 
@@ -143,19 +172,63 @@ public class MainController implements Initializable {
         //Reset
         sesionesStringList = new ArrayList<>();            
         for(SesionTipo sesionT : this.gym.getTiposSesion()) 
-            sesionesStringList.add(sesionT.getNombre());             
+            sesionesStringList.add(sesionT.getNombre()); 
+        sesionesObsList = FXCollections.observableArrayList(sesionesStringList);
         listViewSesiones.setItems(sesionesObsList);
         
         //Si no está vacio
-        if(!gruposBuscador.getText().equals("")) {
-            String aux;
-            for(int i = sesionesStringList.size(); i < 0; i--) {
+        if(!sesionesBuscador.getText().equals("")) {
+            int i = sesionesStringList.size() - 1;
+            while (i >= 0) {
                 if(!sesionesStringList.get(i).contains(sesionesBuscador.getText())){
                     sesionesObsList.remove(i); sesionesStringList.remove(i);
                 }
+                i--;
             } 
         }
     }
+    
+    @FXML
+    private void isSelected(MouseEvent event) {
+        int i = listViewSesiones.getSelectionModel().getSelectedIndex();
+        
+        if(i >= 0) {
+            int aux = 0;
+            for(SesionTipo sesion : this.gym.getTiposSesion()) {
+                if(sesion.getNombre().equals(sesionesStringList.get(i))) break;
+                aux++;
+            }
+            i = aux;
+            
+            nombreSesion.setText(this.gym.getTiposSesion().get(i).getNombre());
+            tC.setText("Tiempo de calentamiento:  " + 
+                       this.gym.getTiposSesion().get(i).getTCalentamiento() +
+                       "s");
+            tE.setText("Tiempo por ejercicio:  " + 
+                       this.gym.getTiposSesion().get(i).getTEjercicios() +
+                       "s");
+            tD.setText("Tiempo de descanso:  " + 
+                       this.gym.getTiposSesion().get(i).getTDescanso()+
+                       "s");
+            nC.setText("Numero de circuitos:  " + 
+                       this.gym.getTiposSesion().get(i).getNumCircuitos());
+            tDC.setText("Tiempo de descanso por ejercicio:  " + 
+                       this.gym.getTiposSesion().get(i).getTDCircuitos()+
+                       "s");
+            
+        List<String> ejercicios = new ArrayList<>();            
+        for(String ejercicio : this.gym.getTiposSesion().get(i).getEjercicios()) 
+            ejercicios.add(ejercicio); 
+        ObservableList<String> obsEjercicios = FXCollections.
+                                                observableArrayList(ejercicios);
+        ejerciciosListView.setItems(obsEjercicios);
+            
+            datosDeSesion.setVisible(true);
+        }                   
+        else datosDeSesion.setVisible(false);
+    }
+
+    public Gym getGym() { return this.gym; }
 
     
 }

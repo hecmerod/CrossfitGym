@@ -52,7 +52,6 @@
                         <Insets right="13.0" />
                       </HBox.margin>
                     </TextField>
-                    <Label fx:id="errNombre" font="$x1" text="*" textFill="RED" />
                   </children>
                 </HBox>
                 <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -60,7 +59,7 @@
                     <TextField fx:id="tCalentamiento" prefHeight="34.0" prefWidth="94.0" />
                     <Label font="$x1" text="s.">
                       <HBox.margin>
-                        <Insets right="10.0" />
+                        <Insets />
                       </HBox.margin>
                     </Label>
                   </children>
@@ -75,21 +74,18 @@
                   <children>
                     <TextField fx:id="tEjercicio" prefHeight="34.0" prefWidth="94.0" />
                     <Label font="$x1" text="s." />
-                    <Label fx:id="errTE" font="$x1" text="*" textFill="RED" />
                   </children>
                 </HBox>
                 <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                   <children>
                     <TextField fx:id="tDescanso" prefHeight="34.0" prefWidth="94.0" />
                     <Label font="$x1" text="s." />
-                    <Label fx:id="errTD" font="$x1" text="*" textFill="RED" />
                   </children>
                 </HBox>
                 <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                   <children>
                     <TextField fx:id="tDescansoCircuitos" prefHeight="34.0" prefWidth="94.0" />
                     <Label font="$x1" text="s." />
-                    <Label fx:id="errTDC" font="$x1" text="*" textFill="RED" />
                   </children>
                 </HBox>
                 <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
@@ -99,13 +95,43 @@
                         <Insets right="13.0" />
                       </HBox.margin>
                     </TextField>
-                    <Label fx:id="errNC" font="$x1" text="*" textFill="RED" />
+                  </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                  <children>
+                    <Label fx:id="errNombre" font="$x1" text="" textFill="RED" />
+                  </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <children>
+                    <Label fx:id="errTC" font="$x1" text="" textFill="#ff3333" />
+                  </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <children>
+                    <Label fx:id="errTE" font="$x1" text="" textFill="RED" />
+                  </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                  <children>
+                    <Label fx:id="errNC" font="$x1" text="" textFill="RED" />
+                  </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                  <children>
+                    <Label fx:id="errTD" font="$x1" text="" textFill="RED" />
+                  </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                  <children>
+                    <Label fx:id="errTDC" font="$x1" text="" textFill="RED" />
                   </children>
                 </HBox>
               </children>
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="248.0" minWidth="10.0" prefWidth="237.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="192.0" minWidth="10.0" prefWidth="149.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="248.0" minWidth="10.0" prefWidth="187.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="192.0" minWidth="10.0" prefWidth="184.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="192.0" minWidth="10.0" prefWidth="15.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />

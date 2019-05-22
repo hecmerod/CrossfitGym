@@ -64,6 +64,8 @@ public class CrearSesionController implements Initializable {
     private Gym gym;
     
     private static final int MAX_EJERCICIOS = 13;
+    @FXML
+    private Label errTC;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -93,22 +95,23 @@ public class CrearSesionController implements Initializable {
     private void crear(ActionEvent event) {      
         boolean ok = true;
         
-        if(nombre.getText().equals("")) {errNombre.setText("*"); ok = false;}
-        else errNombre.setText(" ");
+        if(nombre.getText().equals("")) { errNombre.setText("*"); ok = false;}
+        else errNombre.setText("");
         
         if(tEjercicio.getText().equals("")) {errTE.setText("*"); ok = false;}
-        else errTE.setText(" ");
+        else errTE.setText("");
         
         if(tDescanso.getText().equals("")) {errTD.setText("*"); ok = false;}
-        else errTD.setText(" ");
+        else errTD.setText("");
         
         if(nCircuitos.getText().equals("")) {errNC.setText("*"); ok = false;}
-        else errNC.setText(" ");
+        else errNC.setText("");
         
         if(tDescansoCircuitos.getText().equals("")) {
             errTDC.setText("*"); ok = false;
         }
-        else errTDC.setText(" ");
+        else errTDC.setText("");       
+        
         
         if(ok && ejercicios.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);                
@@ -117,32 +120,66 @@ public class CrearSesionController implements Initializable {
             alert.showAndWait();
         } 
         else {
-            int tC;
-            if(tCalentamiento.getText().equals("")) tC = 0;
-            else tC = Integer.parseInt(tCalentamiento.getText());
-            gym.getTiposSesion().add(new SesionTipo(
-                    nombre.getText(), tC, ejercicios.size(),
-                    Integer.parseInt(tEjercicio.getText()),
-                    Integer.parseInt(tDescanso.getText()),
-                    Integer.parseInt(nCircuitos.getText()),
-                    Integer.parseInt(tDescansoCircuitos.getText()),
-                    ejercicios
-            ));
-            
+            int[] t = new int[5];
+            int aux = 0; String err = "";
             try {
-                FXMLLoader cargador = new FXMLLoader(getClass()
-                        .getResource("/crossfitgym/Main.fxml"));
-                Parent root = cargador.load();
+                if(tCalentamiento.getText().equals("")) t[aux] = 0;
+                else {
+                    t[aux] = Integer.parseInt(tCalentamiento.getText()); 
+                    aux++;
+                }
+                t[aux] = Integer.parseInt(tEjercicio.getText()); aux++;
+                t[aux] = Integer.parseInt(tDescanso.getText()); aux++;
+                t[aux] = Integer.parseInt(nCircuitos.getText()); aux++;
+                t[aux] = Integer.parseInt(tDescansoCircuitos.getText()); aux++;
+                
+            } catch(NumberFormatException e) {
+                switch(aux) {
+                    case 0: 
+                        err = "Sólo se admiten números en "
+                                + "el tiempo de calentamiento";
+                    break;
+                    case 1: err = "Sólo se admiten números en "
+                                + "el tiempo por ejercicio";
+                    break;
+                    case 2: err = "Sólo se admiten números en "
+                                + "el tiempo de descanso";
+                    break;
+                    case 3: err = "Sólo se admiten números en "
+                                + "el número de ejercicios";
+                    break;
+                    case 4: err = "Sólo se admiten números en "
+                                + "el tiempo de descanso entre circuitos";
+                    break;
+                }
+                Alert alert = new Alert(Alert.AlertType.ERROR);                
+                alert.setHeaderText("");
+                alert.setContentText(err);
+                alert.showAndWait();
+                
+                aux = -1;
+            }
             
-                MainController controller = cargador
-                        .<MainController>getController();
-                controller.initStage(this.stage, gym);
+            if(aux != -1) {
+                gym.getTiposSesion().add(new SesionTipo(
+                        nombre.getText(), t[0], ejercicios.size(), t[1],
+                        t[2], t[3], t[4], ejercicios));
             
-                Scene scene = new Scene(root);
+                try {
+                    FXMLLoader cargador = new FXMLLoader(getClass()
+                             .getResource("/crossfitgym/Main.fxml"));
+                    Parent root = cargador.load();
             
-                this.stage.setScene(scene);
-                this.stage.show();
-            }catch(IOException e){}
+                    MainController controller = cargador
+                            .<MainController>getController();
+                    controller.initStage(this.stage, gym);
+            
+                    Scene scene = new Scene(root);
+            
+                    this.stage.setScene(scene);
+                    this.stage.show();
+                } catch(IOException e){}
+            }
         }
     }
 

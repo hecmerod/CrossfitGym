@@ -27,6 +27,11 @@
                       </HBox.margin>
                     </Label>
                     <TextField fx:id="codigo" prefWidth="128.0" />
+                    <Label fx:id="errCodigo" font="$x1" text="" textFill="RED">
+                      <HBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                      </HBox.margin>
+                    </Label>
                   </children>
                 </HBox>
                 <Label font="$x1" text="Descripción">

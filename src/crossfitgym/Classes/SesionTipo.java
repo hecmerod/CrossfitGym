@@ -10,12 +10,13 @@ public class SesionTipo implements Serializable{
     
     private List<String> ejercicios;
     
-    public SesionTipo(String nombre, int tC, int nE, int tE, int tD, int nC, int tDC,
+    public SesionTipo(String n, int tC, int nE, int tE, int tD, int nC, int tDC,
                       List<String> e) {
+        this.nombre = n;
         this.tCalentamiento = tC; this.numEjercicios = nE;
         this.tEjercicios = tE; this.tDescanso = tD; this.numCircuitos = nC;
         this.tDCircuitos = tDC;
-        this.ejercicios = e;
+        this.ejercicios = e;        
     }
     
     public int getTCalentamiento() {return this.tCalentamiento;}
@@ -25,7 +26,7 @@ public class SesionTipo implements Serializable{
     public int getNumCircuitos() {return this.numCircuitos;}
     public int getTDCircuitos() {return this.tDCircuitos;}
     public String getNombre() {return this.nombre;}
-    
+    public List<String> getEjercicios(){ return this.ejercicios;}    
     public void setTCalentamiento(int tC) {this.tCalentamiento = tC;}
     public void setNumEjercicios(int nE) {this.numEjercicios = nE;}
     public void setTEjercicios(int tE) {this.tEjercicios = tE;}
