@@ -131,20 +131,33 @@ public class MainController implements Initializable {
     }
     
     @FXML private void go(ActionEvent event) {
-        try {
-            FXMLLoader cargador = new FXMLLoader(getClass()
+        int i = listViewSesiones.getSelectionModel().getSelectedIndex();
+        int j = listViewGrupos.getSelectionModel().getSelectedIndex();
+        if(i >= 0 && j >= 0){
+            int aux = 0;
+            for(SesionTipo sesion : this.gym.getTiposSesion()) {
+                if(sesion.getNombre().equals(sesionesStringList.get(i))) break;
+                aux++;
+            }
+            i = aux;
+        
+            try {
+                FXMLLoader cargador = new FXMLLoader(getClass()
                         .getResource("/crossfitgym/Crono.fxml"));
-            Parent root = cargador.load();
+                Parent root = cargador.load();
             
-            CronoController controller = cargador
-                    .<CronoController>getController();
-            controller.initStage(this.stage);
-            
-            Scene scene = new Scene(root);
-            
-            this.stage.setScene(scene);
-            this.stage.show();
-        }catch(IOException e){e.printStackTrace();}
+                CronoController controller = cargador
+                        .<CronoController>getController();
+                controller.initStage(this.stage,
+                        this.gym.getTiposSesion().get(aux), j);
+                
+                Scene scene = new Scene(root);
+                this.stage.setMinWidth(1400);
+                this.stage.setMinHeight(930);
+                this.stage.setScene(scene);
+                this.stage.show();
+            } catch(IOException e){e.printStackTrace();}
+        }        
     }
     
     @FXML private void buscarGrupos(KeyEvent event) {        

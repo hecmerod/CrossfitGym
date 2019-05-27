@@ -4,84 +4,143 @@
 <?import java.util.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane prefHeight="909.0" prefWidth="1625.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="crossfitgym.Controllers.CronoController">
+<StackPane minHeight="500.0" prefHeight="909.0" prefWidth="1625.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="crossfitgym.Controllers.CronoController">
   <children>
-    <HBox prefHeight="100.0" prefWidth="200.0">
+    <GridPane prefHeight="908.9999000000025" prefWidth="954.0">
       <children>
-        <VBox alignment="TOP_CENTER" prefHeight="909.0" prefWidth="395.0" />
-        <VBox prefHeight="909.0" prefWidth="1013.0">
+        <HBox alignment="CENTER" prefHeight="615.0" prefWidth="954.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
           <children>
-            <GridPane prefHeight="908.9999000000025" prefWidth="954.0">
+            <Circle fill="DODGERBLUE" radius="310.5" stroke="BLACK" strokeType="INSIDE" />
+          </children>
+        </HBox>
+        <VBox alignment="TOP_CENTER" prefHeight="615.0" prefWidth="954.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
+          <children>
+            <Label fx:id="timer" minHeight="215.0" prefHeight="278.0" text="00:00">
+              <font>
+                <Font size="200.0" />
+              </font>
+              <VBox.margin>
+                <Insets top="130.0" />
+              </VBox.margin>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="161.0" prefWidth="954.0">
               <children>
-                <HBox alignment="CENTER" prefHeight="615.0" prefWidth="954.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
-                  <children>
-                    <Circle fill="DODGERBLUE" radius="310.5" stroke="BLACK" strokeType="INSIDE" />
-                  </children>
-                </HBox>
-                <HBox alignment="TOP_CENTER" prefHeight="71.0" prefWidth="954.0" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.rowSpan="1">
-                  <children>
-                    <Label text="Grupo">
-                      <font>
-                        <Font size="20.0" fx:id="x1" />
-                      </font>
-                      <HBox.margin>
-                        <Insets right="10.0" fx:id="x2" />
-                      </HBox.margin>
-                    </Label>
-                    <Label font="$x1" text="Nombre del grupo">
-                      <HBox.margin>
-                        <Insets right="50.0" />
-                      </HBox.margin>
-                    </Label>
-                    <Label font="$x1" text="realizando la sesion" HBox.margin="$x2" />
-                    <Label font="$x1" text="Nombre de la sesion" />
-                  </children>
-                  <padding>
-                    <Insets top="20.0" />
-                  </padding>
-                </HBox>
-                <VBox alignment="TOP_CENTER" prefHeight="615.0" prefWidth="954.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
-                  <children>
-                    <Label minHeight="215.0" prefHeight="278.0" text="00:00">
-                      <font>
-                        <Font size="200.0" />
-                      </font>
-                      <VBox.margin>
-                        <Insets top="130.0" />
-                      </VBox.margin>
-                    </Label>
-                    <HBox alignment="CENTER" prefHeight="161.0" prefWidth="954.0">
-                      <children>
-                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Button">
-                          <HBox.margin>
-                            <Insets right="20.0" fx:id="x3" />
-                          </HBox.margin>
-                        </Button>
-                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Button" HBox.margin="$x3" />
-                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Button" />
-                      </children>
-                    </HBox>
-                  </children>
-                </VBox>
+                <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="STOP">
+                  <font>
+                    <Font name="System Bold" size="20.0" fx:id="x6" />
+                  </font>
+                  <HBox.margin>
+                    <Insets right="20.0" fx:id="x3" />
+                  </HBox.margin>
+                </Button>
+                <Button font="$x6" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="START" HBox.margin="$x3" />
+                <Button font="$x6" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="NEXT" />
               </children>
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints maxHeight="302.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="775.0" minHeight="10.0" prefHeight="677.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="303.0" minHeight="10.0" prefHeight="169.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-            </GridPane>
+            </HBox>
           </children>
         </VBox>
-        <VBox prefHeight="909.0" prefWidth="395.0" />
+        <HBox alignment="TOP_CENTER" prefHeight="71.0" prefWidth="954.0" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.rowIndex="0" GridPane.rowSpan="1">
+          <children>
+            <Label text="Grupo">
+              <font>
+                <Font size="20.0" fx:id="x1" />
+              </font>
+              <HBox.margin>
+                <Insets right="10.0" fx:id="x2" />
+              </HBox.margin>
+            </Label>
+            <Label fx:id="grupo" font="$x1" text="Nombre del grupo">
+              <HBox.margin>
+                <Insets right="50.0" />
+              </HBox.margin>
+            </Label>
+            <Label font="$x1" text="realizando la sesion" HBox.margin="$x2" />
+            <Label fx:id="sesion" font="$x1" text="Nombre de la sesion" />
+          </children>
+          <padding>
+            <Insets top="20.0" />
+          </padding>
+        </HBox>
+        <VBox alignment="TOP_LEFT" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.rowSpan="2">
+          <children>
+            <ImageView fx:id="ej0" disable="true" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
+              <VBox.margin>
+                <Insets left="50.0" top="30.0" fx:id="x4" />
+              </VBox.margin>
+            </ImageView>
+            <ImageView fx:id="ej1" disable="true" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false" VBox.margin="$x4" />
+            <ImageView fx:id="ej2" disable="true" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false" VBox.margin="$x4" />
+            <ImageView fx:id="ej3" disable="true" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false" VBox.margin="$x4" />
+          </children>
+        </VBox>
+        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="2">
+          <children>
+            <ImageView fx:id="ej4" disable="true" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
+              <HBox.margin>
+                <Insets bottom="10.0" left="50.0" />
+              </HBox.margin>
+            </ImageView>
+            <ImageView fx:id="ej5" disable="true" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
+              <HBox.margin>
+                <Insets bottom="10.0" left="30.0" />
+              </HBox.margin>
+            </ImageView>
+            <ImageView fx:id="ej6" disable="true" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
+              <HBox.margin>
+                <Insets bottom="10.0" left="30.0" right="102.0" />
+              </HBox.margin>
+            </ImageView>
+          </children>
+        </HBox>
+        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="2">
+          <children>
+            <ImageView fx:id="ej7" disable="true" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
+              <HBox.margin>
+                <Insets bottom="10.0" left="102.0" />
+              </HBox.margin>
+            </ImageView>
+            <ImageView fx:id="ej8" disable="true" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
+              <HBox.margin>
+                <Insets left="30.0" />
+              </HBox.margin>
+            </ImageView>
+            <ImageView fx:id="ej9" disable="true" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
+              <HBox.margin>
+                <Insets left="30.0" right="50.0" />
+              </HBox.margin>
+            </ImageView>
+          </children>
+        </HBox>
+        <VBox alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="0" GridPane.rowSpan="2">
+          <children>
+            <ImageView id="ej10" fx:id="ej13" disable="true" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
+              <VBox.margin>
+                <Insets right="50.0" top="30.0" fx:id="x5" />
+              </VBox.margin>
+            </ImageView>
+            <ImageView id="ej11" fx:id="ej12" disable="true" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false" VBox.margin="$x5" />
+            <ImageView id="ej12" fx:id="ej11" disable="true" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false" VBox.margin="$x5" />
+            <ImageView id="ej13" fx:id="ej10" disable="true" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false" VBox.margin="$x5" />
+          </children>
+        </VBox>
       </children>
-    </HBox>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="370.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="300.0" prefWidth="450.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="450.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="370.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints maxHeight="302.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="775.0" minHeight="10.0" prefHeight="677.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="303.0" minHeight="10.0" prefHeight="169.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+    </GridPane>
   </children>
 </StackPane>

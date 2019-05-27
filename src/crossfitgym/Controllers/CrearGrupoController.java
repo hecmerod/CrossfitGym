@@ -18,7 +18,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-public class CrearGrupoController implements Initializable {
+public class CrearGrupoController {
 
     private Stage stage;
     
@@ -36,10 +36,7 @@ public class CrearGrupoController implements Initializable {
     private Gym gym;
     @FXML
     private Label errCodigo;
-    
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-    }    
+     
     public void initStage(Stage s, Gym g) {this.stage = s; this.gym = g;}
 
     @FXML

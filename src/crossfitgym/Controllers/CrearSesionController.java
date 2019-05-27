@@ -63,7 +63,7 @@ public class CrearSesionController implements Initializable {
     
     private Gym gym;
     
-    private static final int MAX_EJERCICIOS = 13;
+    private static final int MAX_EJERCICIOS = 12;
     @FXML
     private Label errTC;
 
@@ -74,7 +74,7 @@ public class CrearSesionController implements Initializable {
     public void initStage(Stage s, Gym g) {this.stage = s; this.gym = g;}
 
     @FXML private void addEjercicio(ActionEvent event) {
-        if (ejercicios.size() < MAX_EJERCICIOS) {
+        if (ejercicios.size() <= MAX_EJERCICIOS) {
             ejercicios.add(((Button)event.getSource()).getId());
             ejerciciosObs = FXCollections.observableArrayList(ejercicios);
             listViewEjercicios.setItems(ejerciciosObs);

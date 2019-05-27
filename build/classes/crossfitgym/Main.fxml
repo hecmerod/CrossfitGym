@@ -90,7 +90,7 @@
         <Separator orientation="VERTICAL" prefHeight="200.0" />
       </children>
     </HBox>
-    <VBox fx:id="datosDeSesion" alignment="TOP_CENTER" disable="false" prefHeight="200.0" prefWidth="100.0" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+    <VBox fx:id="datosDeSesion" alignment="TOP_CENTER" disable="false" prefHeight="200.0" prefWidth="100.0" visible="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
       <children>
         <Label fx:id="nombreSesion" text="Nombre de la sesión">
           <font>
