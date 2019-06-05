@@ -161,25 +161,27 @@ public class CronoController implements Initializable{
                     final Integer minutos = totalTime.intValue() / 60000;
                     final Integer resto = totalTime.intValue() % 60000;
                     final Integer segundos = resto / 1000;
-                    final Integer centesimas = resto % 60;
+                    final Integer centesimas;
+                    if(segundos.compareTo(sTipo.getTEjercicios()) < 0 )                    
+                        centesimas = resto % 60;                   
+                    else centesimas = 0;
                     
-                    if(segundos.compareTo(sTipo.getTEjercicios()) > 0 ) {    
-                        contEj++;
-                        startTime = prevTime = stopTime = 0;
-                        stopped = true; paused = false;
-                        start_pause.setText("PLAY");
-                        
-                        this.cancel();                        
-                    }
-                    else if(minutos == 0)
-                    Platform.runLater(() -> {
+                    Platform.runLater(() -> { 
+                        if(segundos.compareTo(sTipo.getTEjercicios())>0){
+                            contEj++;
+                            startTime = prevTime = stopTime = 0;
+                            stopped = true; paused = false;
+                            start_pause.setText("PLAY");       
+                            System.err.println("22");
+                            this.cancel();                        
+                        }
+                        else if(minutos == 0)
                         tiempo.setValue(String.format("%02d", segundos) + ":"
                                         + String.format("%02d", centesimas));
-                    });
-                    else Platform.runLater(() -> {
+                        else
                         tiempo.setValue(String.format("%02d", minutos) + ":"
                                 + String.format("%02d", segundos));
-                    });
+                    });                    
 
                     
                 }
