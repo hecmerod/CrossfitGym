@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<GridPane prefHeight="909.0" prefWidth="1625.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="crossfitgym.Controllers.CrearSesionController">
+<GridPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="crossfitgym.Controllers.CrearSesionController">
   <children>
     <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0">
       <children>
-        <HBox prefHeight="455.0" prefWidth="1055.0">
+        <HBox prefHeight="455.0" prefWidth="1045.0">
           <children>
             <GridPane prefHeight="425.0" prefWidth="386.0">
               <children>
@@ -20,34 +27,46 @@
                   <children>
                     <Label text="Nombre de la sesión:">
                       <font>
-                        <Font size="20.0" fx:id="x1" />
+                        <Font size="18.0" fx:id="x1" />
                       </font>
                     </Label>
                   </children>
                 </HBox>
                 <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
                   <children>
-                    <Label font="$x1" text="Tiempo de calentamiento:" />
+                    <Label text="Tiempo de calentamiento:">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font></Label>
                   </children>
                 </HBox>
                 <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
                   <children>
-                    <Label font="$x1" text="Tiempo por ejercicio:" />
+                    <Label text="Tiempo por ejercicio:">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font></Label>
                   </children>
                 </HBox>
                 <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="3">
                   <children>
-                    <Label font="$x1" text="Tiempo de descanso:" />
+                    <Label text="Tiempo de descanso:">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font></Label>
                   </children>
                 </HBox>
                 <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="4">
                   <children>
-                    <Label font="$x1" text="Nº circuitos:" />
+                    <Label text="Nº circuitos:">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font></Label>
                   </children>
                 </HBox>
                 <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
                   <children>
-                    <TextField fx:id="nombre" prefHeight="34.0" prefWidth="94.0">
+                    <TextField fx:id="nombre" prefHeight="34.0" prefWidth="94.0" style="-fx-border-color: #ff4fb2; -fx-background-radius: 40; -fx-border-radius: 40;">
                       <HBox.margin>
                         <Insets right="13.0" />
                       </HBox.margin>
@@ -56,7 +75,7 @@
                 </HBox>
                 <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                   <children>
-                    <TextField fx:id="tCalentamiento" prefHeight="34.0" prefWidth="94.0" />
+                    <TextField fx:id="tCalentamiento" prefHeight="34.0" prefWidth="94.0" style="-fx-border-color: #ff4fb2; -fx-background-radius: 40; -fx-border-radius: 40;" />
                     <Label font="$x1" text="s.">
                       <HBox.margin>
                         <Insets />
@@ -66,31 +85,37 @@
                 </HBox>
                 <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="0" GridPane.rowIndex="5">
                   <children>
-                    <Label font="$x1" text="Tiempo de descanso" />
-                    <Label font="$x1" text="entre circuitos:" />
+                    <Label text="Tiempo de descanso">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font></Label>
+                    <Label text="entre circuitos:">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font></Label>
                   </children>
                 </VBox>
                 <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                   <children>
-                    <TextField fx:id="tEjercicio" prefHeight="34.0" prefWidth="94.0" />
+                    <TextField fx:id="tEjercicio" prefHeight="34.0" prefWidth="94.0" style="-fx-border-color: #ff4fb2; -fx-background-radius: 40; -fx-border-radius: 40;" />
                     <Label font="$x1" text="s." />
                   </children>
                 </HBox>
                 <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                   <children>
-                    <TextField fx:id="tDescanso" prefHeight="34.0" prefWidth="94.0" />
+                    <TextField fx:id="tDescanso" prefHeight="34.0" prefWidth="94.0" style="-fx-border-color: #ff4fb2; -fx-background-radius: 40; -fx-border-radius: 40;" />
                     <Label font="$x1" text="s." />
                   </children>
                 </HBox>
                 <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                   <children>
-                    <TextField fx:id="tDescansoCircuitos" prefHeight="34.0" prefWidth="94.0" />
+                    <TextField fx:id="tDescansoCircuitos" prefHeight="34.0" prefWidth="94.0" style="-fx-border-color: #ff4fb2; -fx-background-radius: 40; -fx-border-radius: 40;" />
                     <Label font="$x1" text="s." />
                   </children>
                 </HBox>
                 <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                   <children>
-                    <TextField fx:id="nCircuitos" prefHeight="34.0" prefWidth="94.0">
+                    <TextField fx:id="nCircuitos" prefHeight="34.0" prefWidth="94.0" style="-fx-border-color: #ff4fb2; -fx-background-radius: 40; -fx-border-radius: 40;">
                       <HBox.margin>
                         <Insets right="13.0" />
                       </HBox.margin>
@@ -129,8 +154,8 @@
                 </HBox>
               </children>
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="248.0" minWidth="10.0" prefWidth="187.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="192.0" minWidth="10.0" prefWidth="184.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="248.0" minWidth="10.0" prefWidth="230.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="192.0" minWidth="10.0" prefWidth="96.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="192.0" minWidth="10.0" prefWidth="15.0" />
               </columnConstraints>
               <rowConstraints>
@@ -155,46 +180,46 @@
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="104.0" prefWidth="670.0">
                   <children>
-                    <Button id="Sit Ups" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Sit-ups">
+                    <Button id="Sit Ups" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Sit-ups" textFill="#ff4fb2">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button id="Squats" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Squats" HBox.margin="$x4" />
-                    <Button id="Chin-ups" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Chin ups" HBox.margin="$x4" />
-                    <Button id="Push-ups" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Push ups" HBox.margin="$x4" />
-                    <Button id="Jump knee tucks" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Jump knee tucks" HBox.margin="$x4" />
-                    <Button id="Punches" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Punches" HBox.margin="$x4" />
+                    <Button id="Squats" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Squats" textFill="#ff4fb2" HBox.margin="$x4" />
+                    <Button id="Chin-ups" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Chin ups" textFill="#ff4fb2" HBox.margin="$x4" />
+                    <Button id="Push-ups" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Push ups" textFill="#ff4fb2" HBox.margin="$x4" />
+                    <Button id="Jump knee tucks" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Jump knee tucks" textFill="#ff4fb2" HBox.margin="$x4" />
+                    <Button id="Punches" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Punches" textFill="#ff4fb2" HBox.margin="$x4" />
                   </children>
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="104.0" prefWidth="670.0">
                   <children>
-                    <Button id="Elbow plank" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Elbow Plank">
+                    <Button id="Elbow plank" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Elbow Plank" textFill="#ff4fb2">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button id="Deadlift" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Deadlift">
+                    <Button id="Deadlift" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Deadlift" textFill="#ff4fb2">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button id="Neutral grip chin-ups" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Neutral Grip Chin ups">
+                    <Button id="Neutral grip chin-ups" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Neutral Grip Chin ups" textFill="#ff4fb2">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button id="Close grip push-ups" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Close Grip Push ups">
+                    <Button id="Close grip push-ups" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Close Grip Push ups" textFill="#ff4fb2">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button id="High knees" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="high knees">
+                    <Button id="High knees" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="high knees" textFill="#ff4fb2">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button id="Turning kicks" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Turning Kicks">
+                    <Button id="Turning kicks" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Turning Kicks" textFill="#ff4fb2">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
@@ -206,32 +231,32 @@
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="104.0" prefWidth="670.0">
                   <children>
-                    <Button id="Leg raises" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Leg Raises">
+                    <Button id="Leg raises" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Leg Raises" textFill="#ff4fb2">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button id="Sumo deadlift" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Sumo Deadlift">
+                    <Button id="Sumo deadlift" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Sumo Deadlift" textFill="#ff4fb2">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button id="Wide grip chin-ups" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Wide Grip chin ups">
+                    <Button id="Wide grip chin-ups" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Wide Grip chin ups" textFill="#ff4fb2">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button id="Dips" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Dips">
+                    <Button id="Dips" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Dips" textFill="#ff4fb2">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button id="Lunges" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="lunges">
+                    <Button id="Lunges" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="lunges" textFill="#ff4fb2">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button id="Ball passes" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Ball Passes">
+                    <Button id="Ball passes" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Ball Passes" textFill="#ff4fb2">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
@@ -240,32 +265,32 @@
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="104.0" prefWidth="670.0">
                   <children>
-                    <Button id="Bicycle Crunches" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Bicycle Crunches">
+                    <Button id="Bicycle Crunches" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Bicycle Crunches" textFill="#ff4fb2">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button id="Box jumps" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Box jumps">
+                    <Button id="Box jumps" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Box jumps" textFill="#ff4fb2">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button id="Weighted chin-ips" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Weighted chin ups">
+                    <Button id="Weighted chin-ips" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Weighted chin ups" textFill="#ff4fb2">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button id="Bench dips" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Bench Dips">
+                    <Button id="Bench dips" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Bench Dips" textFill="#ff4fb2">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button id="Fly steps" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Fly Steps">
+                    <Button id="Fly steps" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Fly Steps" textFill="#ff4fb2">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button id="WIP" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" text="Button">
+                    <Button id="WIP" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Button" textFill="#ff4fb2">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
@@ -284,12 +309,12 @@
         </HBox>
         <VBox prefHeight="455.0" prefWidth="223.0">
           <children>
-            <ListView fx:id="listViewEjercicios" prefHeight="298.0" prefWidth="221.0">
+            <ListView fx:id="listViewEjercicios" prefHeight="298.0" prefWidth="221.0" style="-fx-border-color: #ff4fb2; -fx-background-radius: 10; -fx-border-radius: 10;">
               <VBox.margin>
                 <Insets bottom="10.0" top="70.0" />
               </VBox.margin>
             </ListView>
-            <Button font="$x1" mnemonicParsing="false" onAction="#eliminarEjercicio" prefHeight="34.0" prefWidth="115.0" text="Eliminar" />
+            <Button font="$x1" mnemonicParsing="false" onAction="#eliminarEjercicio" prefHeight="34.0" prefWidth="115.0" stylesheets="@Visual.css" text="Eliminar" textFill="WHITE" />
           </children>
           <HBox.margin>
             <Insets right="40.0" />
@@ -300,21 +325,26 @@
           <children>
             <VBox alignment="CENTER" prefHeight="455.0" prefWidth="235.0">
               <children>
-                <Button disable="false" font="$x5" mnemonicParsing="false" onAction="#crear" prefHeight="51.0" prefWidth="198.0" text="Crear" visible="true">
+                <Button disable="false" font="$x5" mnemonicParsing="false" onAction="#crear" prefHeight="51.0" prefWidth="198.0" stylesheets="@Visual.css" text="Crear" textFill="WHITE" visible="true">
                   <VBox.margin>
                     <Insets bottom="70.0" />
                   </VBox.margin>
                 </Button>
-                <Button disable="false" font="$x5" mnemonicParsing="false" onAction="#atras" prefHeight="51.0" prefWidth="204.0" text="Cancelar" />
+                <Button disable="false" font="$x5" mnemonicParsing="false" onAction="#atras" prefHeight="51.0" prefWidth="204.0" stylesheets="@Visual.css" text="Cancelar" textFill="WHITE" />
               </children>
             </VBox>
           </children>
         </VBox>
       </children>
     </HBox>
-    <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1">
+    <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
       <children>
         <Separator prefWidth="200.0" />
+            <ImageView fitHeight="357.0" fitWidth="1341.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/CROSSFIT.png" />
+               </image>
+            </ImageView>
       </children>
     </VBox>
   </children>
