@@ -1,10 +1,14 @@
 package crossfitgym.Controllers;
 
 import crossfitgym.Classes.SesionTipo;
+import java.applet.Applet;
+import java.applet.AudioClip;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
@@ -58,7 +62,7 @@ public class CronoController implements Initializable{
     private ImageView[] ej;
 
     
-    private static final int DELAY = 50;
+    private static final int DELAY = 100;
     
     private static long prevTime = 0, startTime = 0, stopTime = 0;
  
@@ -74,23 +78,36 @@ public class CronoController implements Initializable{
     
     private StringProperty tiempo = new SimpleStringProperty();
     
+    private LinkedList<Integer> qTiempos;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ej = new ImageView[14];
         ej[0] = ej0; ej[1] = ej1; ej[2] = ej2; ej[3] = ej3; ej[4] = ej4;
         ej[5] = ej5; ej[6] = ej6; ej[7] = ej7; ej[8] = ej8; ej[9] = ej9;
-        ej[10] = ej10; ej[11] = ej11; ej[12] = ej12; ej[13] = ej13;
-                
+        ej[10] = ej10; ej[11] = ej11; ej[12] = ej12; ej[13] = ej13;       
+        
         tiempo.setValue("00:00");
         timer.textProperty().bind(tiempo);
         
         crono = new MyService();
+        
+        
     }    
     
     public void initStage(Stage s, SesionTipo sT, int nG) {
         this.stage = s; this.sTipo = sT; this.nGrupo = nG;     
         setImages();
-        System.err.println(this.sTipo.getTEjercicios());
+        
+        qTiempos = new LinkedList();
+        if(sT.getTCalentamiento() != 0) qTiempos.addLast(sT.getTCalentamiento());
+        for(int i = 0; i < sT.getNumCircuitos(); i++) {
+            for(int j = 0; j < sT.getNumEjercicios(); j++) {
+                qTiempos.addLast(sT.getTEjercicios());
+                qTiempos.addLast(sT.getTDescanso());
+            }
+            if(i < sT.getNumCircuitos() - 1)qTiempos.addLast(sT.getTDCircuitos());
+        }    
     }
     
     private void setImages() {
@@ -153,6 +170,9 @@ public class CronoController implements Initializable{
         protected Task<Void> createTask() {
             return new Task<Void>() {
                 
+                protected int actualTime;
+                protected long sumTime = 0;
+                
                 void calcula() {                    
                     long nowTime = System.currentTimeMillis();
                     Long totalTime = (nowTime - startTime) - stopTime;
@@ -162,27 +182,53 @@ public class CronoController implements Initializable{
                     final Integer resto = totalTime.intValue() % 60000;
                     final Integer segundos = resto / 1000;
                     final Integer centesimas;
-                    if(segundos.compareTo(sTipo.getTEjercicios()) < 0 )                    
-                        centesimas = resto % 60;                   
-                    else centesimas = 0;
                     
-                    Platform.runLater(() -> { 
-                        if(segundos.compareTo(sTipo.getTEjercicios())>0){
-                            contEj++;
-                            startTime = prevTime = stopTime = 0;
-                            stopped = true; paused = false;
-                            start_pause.setText("PLAY");       
-                            System.err.println("22");
-                            this.cancel();                        
-                        }
-                        else if(minutos == 0)
-                        tiempo.setValue(String.format("%02d", segundos) + ":"
-                                        + String.format("%02d", centesimas));
+                    if(minutos * 60 + segundos > actualTime) { 
+                        
+                        centesimas = 0;
+                        nextTime();
+                        
+                    } 
+                    else centesimas = resto % 60;
+                    
+                    Platform.runLater(() -> {  
+                        if(minutos == 0)
+                            tiempo.setValue(String.format("%02d", segundos) + ":"
+                                    + String.format("%02d", centesimas));
                         else
-                        tiempo.setValue(String.format("%02d", minutos) + ":"
+                            tiempo.setValue(String.format("%02d", minutos) + ":"
                                 + String.format("%02d", segundos));
-                    });                    
-
+                        });                    
+                    
+                    
+                }
+                void nextTime() { 
+                    Platform.runLater(() -> {                         
+                            tiempo.setValue(String.format("%02d", actualTime) + ":00");
+                        });    
+                    //SONIDO NO IMPLEMENTADO
+                    /*AudioClip audio = Applet.newAudioClip(getClass()
+                            .getClassLoader().getResource("sonido.mp3"));
+                    new Thread() {
+                        @Override public void run() {
+                        audio.play();
+                        }
+                    }.start();*/
+                    
+                    try {Thread.sleep(1000);} catch(InterruptedException e) {}
+                    
+                    startTime = System.currentTimeMillis();
+                    prevTime = startTime;
+                    if(actualTime == sTipo.getTEjercicios()) contEj++;
+                    
+                    System.err.println(actualTime);
+                    System.err.println("Ejercicio: " + contEj);
+                    
+                    sumTime += qTiempos.poll();
+                    if(qTiempos.peekFirst() != null) actualTime = qTiempos.peekFirst();  
+                    else{System.err.println("kasd"); this.cancel();}                    
+                
+                     
                     
                 }
 
@@ -192,6 +238,7 @@ public class CronoController implements Initializable{
                         startTime = System.currentTimeMillis();
                         prevTime = startTime;
                         stopped = false;
+                        actualTime = qTiempos.peek();                        
                     } else {
                         long nowTime = System.currentTimeMillis();
                         Long elapsedTime = nowTime - prevTime;

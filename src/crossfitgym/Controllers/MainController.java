@@ -69,8 +69,7 @@ public class MainController implements Initializable {
             if(objectIn == null) {gym = new Gym(); 
             System.out.println("crossfitgym.Controllers.MainController.initialize()");}
             else { gym = (Gym) objectIn.readObject(); initListViews();}
-            objectIn.close();
-            
+            objectIn.close();            
             
         } catch (Exception ex) { gym = new Gym(); }
     }
