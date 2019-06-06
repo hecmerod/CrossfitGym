@@ -185,41 +185,41 @@
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button id="Squats" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Squats" textFill="#ff4fb2" HBox.margin="$x4" />
-                    <Button id="Chin-ups" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Chin ups" textFill="#ff4fb2" HBox.margin="$x4" />
-                    <Button id="Push-ups" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Push ups" textFill="#ff4fb2" HBox.margin="$x4" />
-                    <Button id="Jump knee tucks" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Jump knee tucks" textFill="#ff4fb2" HBox.margin="$x4" />
-                    <Button id="Punches" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Punches" textFill="#ff4fb2" HBox.margin="$x4" />
+                    <Button id="Chest Squeezes" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Chest Squeezes" textFill="#ff4fb2" HBox.margin="$x4" />
+                    <Button id="Elbow Lifts" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Elbow Lifts" textFill="#ff4fb2" HBox.margin="$x4" />
+                    <Button id="Leg Raises" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Leg Raises" textFill="#ff4fb2" HBox.margin="$x4" />
+                    <Button id="Pull Ups" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Pull Ups" textFill="#ff4fb2" HBox.margin="$x4" />
+                    <Button id="Superman" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Superman" textFill="#ff4fb2" HBox.margin="$x4" />
                   </children>
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="104.0" prefWidth="670.0">
                   <children>
-                    <Button id="Elbow plank" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Elbow Plank" textFill="#ff4fb2">
+                    <Button id="Bycycle Crunches" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Bycycle Crunches" textFill="#ff4fb2">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button id="Deadlift" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Deadlift" textFill="#ff4fb2">
+                    <Button id="Chin Ups" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Chin Ups" textFill="#ff4fb2">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button id="Neutral grip chin-ups" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Neutral Grip Chin ups" textFill="#ff4fb2">
+                    <Button id="Fly Steps" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Fly Steps" textFill="#ff4fb2">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button id="Close grip push-ups" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Close Grip Push ups" textFill="#ff4fb2">
+                    <Button id="Lunges" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Lunges" textFill="#ff4fb2">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button id="High knees" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="high knees" textFill="#ff4fb2">
+                    <Button id="Push Ups" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Push Ups" textFill="#ff4fb2">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button id="Turning kicks" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Turning Kicks" textFill="#ff4fb2">
+                    <Button id="Triceps Dips" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Triceps Dips" textFill="#ff4fb2">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
@@ -231,32 +231,32 @@
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="104.0" prefWidth="670.0">
                   <children>
-                    <Button id="Leg raises" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Leg Raises" textFill="#ff4fb2">
+                    <Button id="Bridges" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Bridges" textFill="#ff4fb2">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button id="Sumo deadlift" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Sumo Deadlift" textFill="#ff4fb2">
+                    <Button id="Donkey Kicks" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Donkey Kicks" textFill="#ff4fb2">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button id="Wide grip chin-ups" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Wide Grip chin ups" textFill="#ff4fb2">
+                    <Button id="High Knees" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="High Knees" textFill="#ff4fb2">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button id="Dips" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Dips" textFill="#ff4fb2">
+                    <Button id="Plank Jumps In" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Plank Jumps In" textFill="#ff4fb2">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button id="Lunges" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="lunges" textFill="#ff4fb2">
+                    <Button id="Rev Crunches" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Rev Crunches" textFill="#ff4fb2">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button id="Ball passes" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Ball Passes" textFill="#ff4fb2">
+                    <Button id="Tricep Extensions" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Tricep Extensions" textFill="#ff4fb2">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
@@ -265,32 +265,32 @@
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="104.0" prefWidth="670.0">
                   <children>
-                    <Button id="Bicycle Crunches" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Bicycle Crunches" textFill="#ff4fb2">
+                    <Button id="CG Push Ups" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="CG Push Ups" textFill="#ff4fb2">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button id="Box jumps" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Box jumps" textFill="#ff4fb2">
+                    <Button id="Doorframe Rows" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Doorframe Rows" textFill="#ff4fb2">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button id="Weighted chin-ips" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Weighted chin ups" textFill="#ff4fb2">
+                    <Button id="Leg Curls" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Leg Curls" textFill="#ff4fb2">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button id="Bench dips" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Bench Dips" textFill="#ff4fb2">
+                    <Button id="Plank Rotations" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Plank Rotations" textFill="#ff4fb2">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button id="Fly steps" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Fly Steps" textFill="#ff4fb2">
+                    <Button id="Squats" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Squats" textFill="#ff4fb2">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>
                     </Button>
-                    <Button id="WIP" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Button" textFill="#ff4fb2">
+                    <Button id="Turning Kicks" mnemonicParsing="false" onAction="#addEjercicio" prefHeight="85.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" stylesheets="@Visual.css" text="Turning Kicks" textFill="#ff4fb2">
                       <HBox.margin>
                         <Insets left="10.0" right="10.0" fx:id="x4" />
                       </HBox.margin>

@@ -4,6 +4,7 @@ import crossfitgym.Classes.SesionTipo;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.LinkedList;
 import java.util.ResourceBundle;
@@ -27,6 +28,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javax.imageio.ImageIO;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
 
 public class CronoController implements Initializable{
 
@@ -117,16 +120,21 @@ public class CronoController implements Initializable{
     
     private void setImages() {
         BufferedImage image = null;
-        for(int i = 0; i <= this.sTipo.getNumEjercicios(); i++) {
+        for(int i = 0; i < this.sTipo.getNumEjercicios(); i++) {
             ej[i].setDisable(false); ej[i].setVisible(true);  
+            System.err.println(sTipo.getEjercicios().get(i));
             try {
                 image = ImageIO.read(new File(System.getProperty("user.dir") 
-                                        + "/DB/Images/Sit-ups.JPG"));
-                                        //+ this.sTipo.getEjercicios().get(i)));
+                                    + "/DB/Images/" 
+                                    + sTipo.getEjercicios().get(i) + ".PNG"));                                        
                 ej[i].setImage(SwingFXUtils.toFXImage(image, null)); 
-            } catch(IOException e){}
+            } catch(IOException e){
+                System.out.println(i);
+            }
         }
     }
+    
+    
     @FXML private void next(ActionEvent event) {
         contEj++;
     }
@@ -226,8 +234,6 @@ public class CronoController implements Initializable{
                     
                     
                     try {Thread.sleep(1000);} catch(InterruptedException e) {}
-                    
-                    
                     
                     startTime = System.currentTimeMillis();
                     prevTime = startTime;                    
