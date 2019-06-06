@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<GridPane prefHeight="909.0" prefWidth="1625.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="crossfitgym.Controllers.CrearGrupoController">
+<GridPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="crossfitgym.Controllers.CrearGrupoController">
   <children>
     <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0">
       <children>
-        <HBox prefHeight="455.0" prefWidth="1321.0">
+        <HBox prefHeight="360.0" prefWidth="1069.0">
           <children>
             <VBox alignment="TOP_LEFT" prefHeight="415.0" prefWidth="530.0">
               <children>
@@ -26,7 +33,7 @@
                         <Insets left="20.0" right="20.0" fx:id="x2" />
                       </HBox.margin>
                     </Label>
-                    <TextField fx:id="codigo" prefWidth="128.0" />
+                    <TextField fx:id="codigo" prefWidth="128.0" style="-fx-border-color: #ff4fb2; -fx-background-radius: 40; -fx-border-radius: 40;" />
                     <Label fx:id="errCodigo" font="$x1" text="" textFill="RED">
                       <HBox.margin>
                         <Insets left="5.0" top="5.0" />
@@ -39,7 +46,7 @@
                     <Insets left="20.0" />
                   </VBox.margin>
                 </Label>
-                <TextArea fx:id="descripcion" prefHeight="340.0" prefWidth="471.0" wrapText="true" VBox.margin="$x2" />
+                <TextArea fx:id="descripcion" prefHeight="340.0" prefWidth="471.0" style="-fx-border-color: #ff4fb2; -fx-border-radius: 2;" wrapText="true" VBox.margin="$x2" />
               </children>
               <HBox.margin>
                 <Insets bottom="20.0" left="25.0" top="20.0" />
@@ -50,9 +57,9 @@
         <Separator orientation="VERTICAL" prefHeight="200.0" />
         <VBox prefHeight="455.0" prefWidth="280.0">
           <children>
-            <VBox alignment="CENTER" prefHeight="455.0" prefWidth="385.0">
+            <VBox alignment="CENTER" prefHeight="360.0" prefWidth="190.0">
               <children>
-                <Button disable="false" mnemonicParsing="false" onAction="#crear" prefHeight="51.0" prefWidth="198.0" text="Crear" visible="true">
+                <Button disable="false" mnemonicParsing="false" onAction="#crear" prefHeight="51.0" prefWidth="198.0" stylesheets="@Visual.css" text="Crear" textFill="WHITE" visible="true">
                   <font>
                     <Font size="25.0" fx:id="x5" />
                   </font>
@@ -60,7 +67,7 @@
                     <Insets bottom="70.0" />
                   </VBox.margin>
                 </Button>
-                <Button disable="false" font="$x5" mnemonicParsing="false" onAction="#atras" prefHeight="51.0" prefWidth="204.0" text="Cancelar" />
+                <Button disable="false" font="$x5" mnemonicParsing="false" onAction="#atras" prefHeight="51.0" prefWidth="204.0" stylesheets="@Visual.css" text="Cancelar" textFill="WHITE" />
               </children>
             </VBox>
           </children>
@@ -70,6 +77,11 @@
     <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1">
       <children>
         <Separator prefWidth="200.0" />
+            <ImageView fx:id="logoGrande" fitHeight="358.0" fitWidth="1281.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/CROSSFIT.png" />
+               </image>
+            </ImageView>
       </children>
     </VBox>
   </children>

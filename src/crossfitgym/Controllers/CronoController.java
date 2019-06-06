@@ -119,10 +119,7 @@ public class CronoController implements Initializable{
                                         + "/DB/Images/Sit-ups.JPG"));
                                         //+ this.sTipo.getEjercicios().get(i)));
                 ej[i].setImage(SwingFXUtils.toFXImage(image, null)); 
-            } catch(IOException e) {
-                System.err.println("No se ha podido cargar la foto del ejercico "
-                        + i);
-            }
+            } catch(IOException e){}
         }
     }
     @FXML private void next(ActionEvent event) {
@@ -178,18 +175,12 @@ public class CronoController implements Initializable{
                     Long totalTime = (nowTime - startTime) - stopTime;
                     prevTime = nowTime;
 
-                    final Integer minutos = totalTime.intValue() / 60000;
-                    final Integer resto = totalTime.intValue() % 60000;
-                    final Integer segundos = resto / 1000;
-                    final Integer centesimas;
+                    int minutos = totalTime.intValue() / 60000;
+                    int resto = totalTime.intValue() % 60000;
+                    int segundos = resto / 1000;
+                    int centesimas = resto % 60;
                     
-                    if(minutos * 60 + segundos > actualTime) { 
-                        
-                        centesimas = 0;
-                        nextTime();
-                        
-                    } 
-                    else centesimas = resto % 60;
+                    if(minutos * 60 + segundos >= actualTime) nextTime();
                     
                     Platform.runLater(() -> {  
                         if(minutos == 0)
@@ -198,14 +189,14 @@ public class CronoController implements Initializable{
                         else
                             tiempo.setValue(String.format("%02d", minutos) + ":"
                                 + String.format("%02d", segundos));
-                        });                    
+                    });                    
                     
                     
                 }
                 void nextTime() { 
                     Platform.runLater(() -> {                         
                             tiempo.setValue(String.format("%02d", actualTime) + ":00");
-                        });    
+                    });    
                     //SONIDO NO IMPLEMENTADO
                     /*AudioClip audio = Applet.newAudioClip(getClass()
                             .getClassLoader().getResource("sonido.mp3"));
