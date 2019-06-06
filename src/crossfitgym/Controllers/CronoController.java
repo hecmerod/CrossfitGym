@@ -20,6 +20,7 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javax.imageio.ImageIO;
@@ -87,23 +88,27 @@ public class CronoController implements Initializable{
         tiempo.setValue("00:00");
         timer.textProperty().bind(tiempo);
         
-        crono = new MyService();
-        
-        
+        crono = new MyService();   
     }    
     
     public void initStage(Stage s, SesionTipo sT, int nG) {
-        this.stage = s; this.sTipo = sT; this.nGrupo = nG;     
+        this.stage = s; this.sTipo = sT; this.nGrupo = nG; 
+        this.grupo.setText(nG + "");
+        this.sesion.setText(sT.getNombre());
         setImages();
         
+        initColaTiempos();
+    }
+    
+    private void initColaTiempos() {
         qTiempos = new LinkedList();
-        if(sT.getTCalentamiento() != 0) qTiempos.addLast(sT.getTCalentamiento());
-        for(int i = 0; i < sT.getNumCircuitos(); i++) {
-            for(int j = 0; j < sT.getNumEjercicios(); j++) {
-                qTiempos.addLast(sT.getTEjercicios());
-                if (j < sT.getNumEjercicios() - 1) qTiempos.addLast(sT.getTDescanso());
+        if(this.sTipo.getTCalentamiento() != 0) qTiempos.addLast(this.sTipo.getTCalentamiento());
+        for(int i = 0; i < this.sTipo.getNumCircuitos(); i++) {
+            for(int j = 0; j < this.sTipo.getNumEjercicios(); j++) {
+                qTiempos.addLast(this.sTipo.getTEjercicios());
+                if (j < this.sTipo.getNumEjercicios() - 1) qTiempos.addLast(this.sTipo.getTDescanso());
             }
-            if(i < sT.getNumCircuitos() - 1)qTiempos.addLast(sT.getTDCircuitos());
+            if(i < this.sTipo.getNumCircuitos() - 1)qTiempos.addLast(this.sTipo.getTDCircuitos());
         }    
     }
     
@@ -129,17 +134,18 @@ public class CronoController implements Initializable{
         crono.cancel();
         startTime = prevTime = stopTime = 0;                
         stopped = true; paused = false;
-        start_pause.setText("PLAY");
+        start_pause.setText("PLAY");        
     }   
     
 
     @FXML
     private void start_pause(ActionEvent event) {        
-        if(firstTime) { 
+        if(firstTime) {             
             crono.start(); firstTime = false; 
             start_pause.setText("PAUSE");
         }
         else if (stopped) { 
+            initColaTiempos();
             tiempo.setValue("00:00");         
             crono.restart(); 
             start_pause.setText("PAUSE");
@@ -165,8 +171,8 @@ public class CronoController implements Initializable{
             return new Task<Void>() {
                 
                 protected int actualTime;
-                protected long sumTime = 0;
-                protected int contador = 1, resto;
+                protected long sumTime;
+                protected int contador, resto;
                 
                 void calcula() {                    
                     long nowTime = System.currentTimeMillis();
@@ -192,17 +198,10 @@ public class CronoController implements Initializable{
                     
                 }
                 void nextTime() { 
-                    Platform.runLater(() -> {                         
+                    Platform.runLater(() -> {
                             tiempo.setValue(String.format("%02d", actualTime) + ":00");
                     });    
-                    //SONIDO NO IMPLEMENTADO
-                    /*AudioClip audio = Applet.newAudioClip(getClass()
-                            .getClassLoader().getResource("sonido.mp3"));
-                    new Thread() {
-                        @Override public void run() {
-                        audio.play();
-                        }
-                    }.start();*/
+                    
                     
                     try {Thread.sleep(1000);} catch(InterruptedException e) {}
                     
@@ -210,7 +209,7 @@ public class CronoController implements Initializable{
                     
                     startTime = System.currentTimeMillis();
                     prevTime = startTime;                    
-                    
+                    stopTime = 0;
                     sumTime += qTiempos.poll();
                     if(qTiempos.peekFirst() != null) {
                         actualTime = qTiempos.peekFirst();
@@ -231,7 +230,8 @@ public class CronoController implements Initializable{
                 @Override protected Void call() {
                     if (stopped) {
                         startTime = System.currentTimeMillis();
-                        prevTime = startTime;
+                        prevTime = startTime; actualTime = 100; contEj = 0;
+                        sumTime = 0; contador = 1;
                         stopped = false;
                         actualTime = qTiempos.peek();
                         if(sTipo.getTCalentamiento() != 0) {
@@ -240,8 +240,11 @@ public class CronoController implements Initializable{
                         } else {ejercicio(); resto = 1; }
                     } else {
                         long nowTime = System.currentTimeMillis();
+                        actualTime = qTiempos.peek();
                         Long elapsedTime = nowTime - prevTime;
+                        
                         stopTime = stopTime + elapsedTime;
+                        System.err.println(stopTime);
                     }
                     while (true) {
                         try {
@@ -261,8 +264,11 @@ public class CronoController implements Initializable{
 
                 @Override
                 protected void cancelled() {
+                    this.actualTime = 100000;
                     super.cancelled();
-                    prevTime = System.currentTimeMillis();                    
+                    prevTime = System.currentTimeMillis();        
+                    Platform.runLater(() -> { tiempo.setValue(sumTime / 60 + ":"
+                            + sumTime % 60); });
                 }
             };
         }

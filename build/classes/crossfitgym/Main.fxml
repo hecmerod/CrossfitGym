@@ -26,7 +26,7 @@
               <children>
                         <ImageView fitHeight="147.0" fitWidth="235.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../image/LOGO-CROSSGIT.png" />
+                              <Image url="@../../DB/Images/LOGO-CROSSGIT.png" />
                            </image>
                            <effect>
                               <Glow />

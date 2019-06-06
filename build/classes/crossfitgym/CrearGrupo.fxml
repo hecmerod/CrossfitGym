@@ -79,7 +79,7 @@
         <Separator prefWidth="200.0" />
             <ImageView fx:id="logoGrande" fitHeight="358.0" fitWidth="1281.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../image/CROSSFIT.png" />
+                  <Image url="@../../DB/Images/CROSSFIT.png" />
                </image>
             </ImageView>
       </children>

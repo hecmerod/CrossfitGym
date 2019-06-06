@@ -66,8 +66,7 @@ public class MainController implements Initializable {
                                         + "/DB/gymObj");
             ObjectInputStream objectIn = new ObjectInputStream(fileIn);
             
-            if(objectIn == null) {gym = new Gym(); 
-            System.out.println("crossfitgym.Controllers.MainController.initialize()");}
+            if(objectIn == null) gym = new Gym();
             else { gym = (Gym) objectIn.readObject(); initListViews();}
             objectIn.close();            
             
