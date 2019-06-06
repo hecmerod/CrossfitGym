@@ -1,14 +1,11 @@
 package crossfitgym.Controllers;
 
 import crossfitgym.Classes.SesionTipo;
-import java.applet.Applet;
-import java.applet.AudioClip;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.LinkedList;
-import java.util.PriorityQueue;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
@@ -104,7 +101,7 @@ public class CronoController implements Initializable{
         for(int i = 0; i < sT.getNumCircuitos(); i++) {
             for(int j = 0; j < sT.getNumEjercicios(); j++) {
                 qTiempos.addLast(sT.getTEjercicios());
-                qTiempos.addLast(sT.getTDescanso());
+                if (j < sT.getNumEjercicios() - 1) qTiempos.addLast(sT.getTDescanso());
             }
             if(i < sT.getNumCircuitos() - 1)qTiempos.addLast(sT.getTDCircuitos());
         }    
@@ -169,6 +166,7 @@ public class CronoController implements Initializable{
                 
                 protected int actualTime;
                 protected long sumTime = 0;
+                protected int contador = 1, resto;
                 
                 void calcula() {                    
                     long nowTime = System.currentTimeMillis();
@@ -182,7 +180,7 @@ public class CronoController implements Initializable{
                     
                     if(minutos * 60 + segundos >= actualTime) nextTime();
                     
-                    Platform.runLater(() -> {  
+                    Platform.runLater(() -> {
                         if(minutos == 0)
                             tiempo.setValue(String.format("%02d", segundos) + ":"
                                     + String.format("%02d", centesimas));
@@ -208,28 +206,38 @@ public class CronoController implements Initializable{
                     
                     try {Thread.sleep(1000);} catch(InterruptedException e) {}
                     
-                    startTime = System.currentTimeMillis();
-                    prevTime = startTime;
-                    if(actualTime == sTipo.getTEjercicios()) contEj++;
                     
-                    System.err.println(actualTime);
-                    System.err.println("Ejercicio: " + contEj);
+                    
+                    startTime = System.currentTimeMillis();
+                    prevTime = startTime;                    
                     
                     sumTime += qTiempos.poll();
-                    if(qTiempos.peekFirst() != null) actualTime = qTiempos.peekFirst();  
-                    else{System.err.println("kasd"); this.cancel();}                    
-                
-                     
-                    
+                    if(qTiempos.peekFirst() != null) {
+                        actualTime = qTiempos.peekFirst();
+                        if(actualTime == sTipo.getTEjercicios()) ejercicio();
+                        else {descanso();}
+                    }
+                    else this.cancel(); 
                 }
-
-                @Override
-                protected Void call() {
+                
+                void ejercicio() {
+                    contEj++;
+                    System.out.println(contEj);
+                }
+                
+                void descanso() {System.err.println("descanso de " + actualTime);}
+                void calentamiento() {System.err.println("calentamiento");}
+                
+                @Override protected Void call() {
                     if (stopped) {
                         startTime = System.currentTimeMillis();
                         prevTime = startTime;
                         stopped = false;
-                        actualTime = qTiempos.peek();                        
+                        actualTime = qTiempos.peek();
+                        if(sTipo.getTCalentamiento() != 0) {
+                            resto = 0;
+                            calentamiento();
+                        } else {ejercicio(); resto = 1; }
                     } else {
                         long nowTime = System.currentTimeMillis();
                         Long elapsedTime = nowTime - prevTime;
