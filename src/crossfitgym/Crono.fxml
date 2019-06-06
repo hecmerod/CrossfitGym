@@ -82,7 +82,7 @@
                         <Insets />
                      </HBox.margin>
                   </Label>
-                  <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="98.0" style="-fx-background-color: white;" stylesheets="@Visual.css" text="SALIR">
+                  <Button mnemonicParsing="false" onAction="#back" prefHeight="45.0" prefWidth="98.0" style="-fx-background-color: white;" stylesheets="@Visual.css" text="ATRAS">
                      <HBox.margin>
                         <Insets left="200.0" right="30.0" />
                      </HBox.margin>

@@ -340,7 +340,7 @@
     <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
       <children>
         <Separator prefWidth="200.0" />
-            <ImageView fitHeight="357.0" fitWidth="1341.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="logoGrande" fitHeight="357.0" fitWidth="1341.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../DB/Images/CROSSFIT.png" />
                </image>

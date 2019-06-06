@@ -15,8 +15,11 @@ import javafx.concurrent.Task;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -162,6 +165,25 @@ public class CronoController implements Initializable{
             start_pause.setText("PAUSE");
         }
     }
+
+    @FXML
+    private void back(ActionEvent event) {
+        try {
+            crono.cancel();
+            FXMLLoader cargador = new FXMLLoader(getClass()
+                        .getResource("/crossfitgym/Main.fxml"));
+            Parent root = cargador.load();
+            
+            MainController controller = cargador
+                    .<MainController>getController();
+            controller.initStage(this.stage);
+            
+            Scene scene = new Scene(root);
+            
+            this.stage.setScene(scene);
+            this.stage.show();
+        }catch(IOException e){}
+    }
     
     
    private class MyService extends Service<Void> {
@@ -169,11 +191,11 @@ public class CronoController implements Initializable{
         @Override
         protected Task<Void> createTask() {
             return new Task<Void>() {
-                
+                protected boolean ended = false;
                 protected int actualTime;
                 protected long sumTime;
                 protected int contador, resto;
-                
+                                
                 void calcula() {                    
                     long nowTime = System.currentTimeMillis();
                     Long totalTime = (nowTime - startTime) - stopTime;
@@ -216,7 +238,10 @@ public class CronoController implements Initializable{
                         if(actualTime == sTipo.getTEjercicios()) ejercicio();
                         else {descanso();}
                     }
-                    else this.cancel(); 
+                    else {      
+                        ended = true;
+                        this.cancel();                          
+                    }
                 }
                 
                 void ejercicio() {
@@ -266,8 +291,8 @@ public class CronoController implements Initializable{
                 protected void cancelled() {
                     this.actualTime = 100000;
                     super.cancelled();
-                    prevTime = System.currentTimeMillis();        
-                    Platform.runLater(() -> { tiempo.setValue(sumTime / 60 + ":"
+                    prevTime = System.currentTimeMillis();
+                    if(ended) Platform.runLater(() -> { tiempo.setValue(sumTime / 60 + ":"
                             + sumTime % 60); });
                 }
             };

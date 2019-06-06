@@ -3,6 +3,8 @@ package crossfitgym.Controllers;
 import crossfitgym.Classes.Grupo;
 import crossfitgym.Classes.Gym;
 import crossfitgym.Classes.SesionTipo;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -12,6 +14,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,11 +24,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import javax.imageio.ImageIO;
 
 public class MainController implements Initializable {
     
@@ -58,6 +64,12 @@ public class MainController implements Initializable {
     private Label tDC;
     @FXML
     private ListView<String> ejerciciosListView;
+    @FXML
+    private VBox graficasGrupo;
+    @FXML
+    private HBox separador;
+    @FXML
+    private ImageView logoGrande;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -71,6 +83,13 @@ public class MainController implements Initializable {
             objectIn.close();            
             
         } catch (Exception ex) { gym = new Gym(); }
+        
+        BufferedImage image;
+         try {
+                image = ImageIO.read(new File(System.getProperty("user.dir") 
+                                        + "/DB/Images/CROSSFIT.PNG"));
+                logoGrande.setImage(SwingFXUtils.toFXImage(image, null)); 
+        } catch(IOException e){e.printStackTrace();}
     }
     
     public void initStage(Stage s) {this.stage = s;}
@@ -197,11 +216,30 @@ public class MainController implements Initializable {
                 i--;
             } 
         }
-    }
-    
+    }    
+
     @FXML
-    private void isSelected(MouseEvent event) {
+    private void isSelectedG(MouseEvent event) {
+        int i = listViewGrupos.getSelectionModel().getSelectedIndex();
+        
+        if(i >= 0) {
+            graficasGrupo.setVisible(true);
+            separador.setVisible(true); 
+            logoGrande.setVisible(false);
+        }
+        else {
+            graficasGrupo.setVisible(false);
+            if(!datosDeSesion.isVisible()) {
+                separador.setVisible(false); logoGrande.setVisible(true);
+            }            
+        }
+        
+    }
+
+    @FXML
+    private void isSelectedS(MouseEvent event) {
         int i = listViewSesiones.getSelectionModel().getSelectedIndex();
+    
         
         if(i >= 0) {
             int aux = 0;
@@ -232,14 +270,20 @@ public class MainController implements Initializable {
             ejercicios.add(ejercicio); 
         ObservableList<String> obsEjercicios = FXCollections.
                                                 observableArrayList(ejercicios);
-        ejerciciosListView.setItems(obsEjercicios);
-            
-            datosDeSesion.setVisible(true);
+        ejerciciosListView.setItems(obsEjercicios);            
+        datosDeSesion.setVisible(true);
+        separador.setVisible(true);   
+        logoGrande.setVisible(false);
         }                   
-        else datosDeSesion.setVisible(false);
+        else {
+            datosDeSesion.setVisible(false);
+            if(!graficasGrupo.isVisible()) {
+                separador.setVisible(false);
+                logoGrande.setVisible(true);
+            } 
+        }
     }
 
     public Gym getGym() { return this.gym; }
-
     
 }

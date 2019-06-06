@@ -64,7 +64,7 @@
                 <Insets bottom="5.0" />
               </VBox.margin>
             </TextField>
-            <ListView fx:id="listViewGrupos" maxWidth="400.0" prefHeight="330.0" prefWidth="583.0" style="-fx-background-radius: 10; -fx-border-color: #ff4fb2; -fx-border-radius: 10;" />
+            <ListView fx:id="listViewGrupos" maxWidth="400.0" onMouseClicked="#isSelectedG" prefHeight="330.0" prefWidth="583.0" style="-fx-background-radius: 10; -fx-border-color: #ff4fb2; -fx-border-radius: 10;" />
           </children>
                <HBox.margin>
                   <Insets bottom="10.0" />
@@ -82,7 +82,7 @@
                 <Insets bottom="5.0" />
               </VBox.margin>
             </TextField>
-            <ListView fx:id="listViewSesiones" maxWidth="400.0" onMouseClicked="#isSelected" prefHeight="330.0" prefWidth="583.0" style="-fx-background-radius: 10; -fx-border-color: #ff4fb2; -fx-border-radius: 10;" stylesheets="@Visual.css" />
+            <ListView fx:id="listViewSesiones" maxWidth="400.0" onMouseClicked="#isSelectedS" prefHeight="330.0" prefWidth="583.0" style="-fx-background-radius: 10; -fx-border-color: #ff4fb2; -fx-border-radius: 10;" stylesheets="@Visual.css" />
           </children>
                <HBox.margin>
                   <Insets bottom="10.0" />
@@ -104,7 +104,7 @@
         <Separator prefWidth="200.0" />
       </children>
     </VBox>
-    <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+    <VBox fx:id="graficasGrupo" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" visible="false" GridPane.columnIndex="0" GridPane.rowIndex="1">
       <children>
         <Label font="$x1" text="Gráficas del grupo">
           <VBox.margin>
@@ -113,12 +113,12 @@
         </Label>
       </children>
     </VBox>
-    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1">
+    <HBox fx:id="separador" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" visible="false" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1">
       <children>
         <Separator orientation="VERTICAL" prefHeight="454.0" prefWidth="0.0" />
       </children>
     </HBox>
-    <VBox fx:id="datosDeSesion" alignment="TOP_CENTER" disable="false" prefHeight="200.0" prefWidth="100.0" visible="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+    <VBox fx:id="datosDeSesion" alignment="TOP_CENTER" disable="false" prefHeight="200.0" prefWidth="100.0" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
       <children>
         <Label fx:id="nombreSesion" text="Nombre de la sesión">
           <font>
@@ -201,6 +201,11 @@
         </HBox>
       </children>
     </VBox>
+      <ImageView fx:id="logoGrande" fitHeight="358.0" fitWidth="1281.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+         <image>
+            <Image url="@../../DB/Images/CROSSFIT.png" />
+         </image>
+      </ImageView>
   </children>
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

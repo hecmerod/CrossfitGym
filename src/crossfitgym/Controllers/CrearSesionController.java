@@ -2,6 +2,8 @@ package crossfitgym.Controllers;
 
 import crossfitgym.Classes.Gym;
 import crossfitgym.Classes.SesionTipo;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -9,6 +11,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,8 +24,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import javax.imageio.ImageIO;
 
 public class CrearSesionController implements Initializable {
     
@@ -66,12 +71,22 @@ public class CrearSesionController implements Initializable {
     private static final int MAX_EJERCICIOS = 12;
     @FXML
     private Label errTC;
+    @FXML
+    private ImageView logoGrande;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ejercicios = new ArrayList<>();
     }    
-    public void initStage(Stage s, Gym g) {this.stage = s; this.gym = g;}
+    public void initStage(Stage s, Gym g) {
+        this.stage = s; this.gym = g;
+        BufferedImage image;
+        try {
+                image = ImageIO.read(new File(System.getProperty("user.dir") 
+                                        + "/DB/Images/CROSSFIT.PNG"));
+                logoGrande.setImage(SwingFXUtils.toFXImage(image, null)); 
+        } catch(IOException e){e.printStackTrace();}
+    }
 
     @FXML private void addEjercicio(ActionEvent event) {
         if (ejercicios.size() <= MAX_EJERCICIOS) {

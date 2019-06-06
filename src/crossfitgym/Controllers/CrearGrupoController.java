@@ -2,7 +2,10 @@ package crossfitgym.Controllers;
 
 import crossfitgym.Classes.Grupo;
 import crossfitgym.Classes.Gym;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,8 +15,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import javax.imageio.ImageIO;
 
 public class CrearGrupoController {
 
@@ -33,9 +38,22 @@ public class CrearGrupoController {
     private Gym gym;
     @FXML
     private Label errCodigo;
+    @FXML
+    private ImageView logoGrande;
      
-    public void initStage(Stage s, Gym g) {this.stage = s; this.gym = g;}
+    public void initStage(Stage s, Gym g) {
+        this.stage = s; this.gym = g;
+        
+        BufferedImage image;
+        try {
+                image = ImageIO.read(new File(System.getProperty("user.dir") 
+                                        + "/DB/Images/CROSSFIT.PNG"));
+                logoGrande.setImage(SwingFXUtils.toFXImage(image, null)); 
+        } catch(IOException e){e.printStackTrace();}
+    }
 
+    
+    
     @FXML
     private void crear(ActionEvent event) {
         
