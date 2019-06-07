@@ -165,8 +165,9 @@ public class MainController implements Initializable {
             
                 CronoController controller = cargador
                         .<CronoController>getController();
-                controller.initStage(this.stage,
-                        this.gym.getTiposSesion().get(aux), j);
+                controller.initStage(this.stage, this.gym,
+                        this.gym.getTiposSesion().get(aux),
+                        this.gym.getGrupos().get(j).getNombre());
                 
                 Scene scene = new Scene(root);
                 this.stage.setMinWidth(1400);

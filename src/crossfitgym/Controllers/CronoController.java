@@ -1,11 +1,13 @@
 package crossfitgym.Controllers;
 
+import crossfitgym.Classes.Gym;
+import crossfitgym.Classes.Sesion;
 import crossfitgym.Classes.SesionTipo;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
@@ -24,12 +26,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javax.imageio.ImageIO;
-import sun.audio.AudioPlayer;
-import sun.audio.AudioStream;
+
 
 public class CronoController implements Initializable{
 
@@ -75,14 +77,34 @@ public class CronoController implements Initializable{
     private int contEj = 0;
     
     private MyService crono;
-    
-    private int nGrupo;
+
     private SesionTipo sTipo;    
-    
+    private Gym gym;
+    private String nomGrupo;
     
     private StringProperty tiempo = new SimpleStringProperty();
     
     private LinkedList<Integer> qTiempos;
+    @FXML
+    private Button atrasButton;
+    @FXML
+    private HBox ocultarFin0;
+    @FXML
+    private VBox ocultarFin1;
+    @FXML
+    private VBox ocultarFin2;
+    @FXML
+    private HBox ocultarFin3;
+    @FXML
+    private HBox ocultarFin4;
+    @FXML
+    private VBox ocultarFin5;
+    @FXML
+    private VBox finText;
+    @FXML
+    private Label segundosFinal;
+    @FXML
+    private HBox finButton;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -97,9 +119,9 @@ public class CronoController implements Initializable{
         crono = new MyService();   
     }    
     
-    public void initStage(Stage s, SesionTipo sT, int nG) {
-        this.stage = s; this.sTipo = sT; this.nGrupo = nG; 
-        this.grupo.setText(nG + "");
+    public void initStage(Stage s, Gym g, SesionTipo sT, String gr) {
+        this.stage = s; this.sTipo = sT; this.gym = g; this.nomGrupo = gr;
+        this.grupo.setText(gr);
         this.sesion.setText(sT.getNombre());
         setImages();
         
@@ -192,16 +214,46 @@ public class CronoController implements Initializable{
             this.stage.show();
         }catch(IOException e){}
     }
+
+    @FXML
+    private void continuar(ActionEvent event) {   
+        int i = 0;
+        while(!this.nomGrupo.equals(gym.getGrupos().get(i).getNombre())) i++;
+        
+        System.err.println(gym == null);
+        System.err.println(gym.getGrupos().get(i));
+        
+        gym.getGrupos().get(i).getSesiones().add(
+                new Sesion( LocalDateTime.now(), this.sTipo, crono.sumTime)
+        );
+        
+        try {
+            crono.cancel();
+            FXMLLoader cargador = new FXMLLoader(getClass()
+                        .getResource("/crossfitgym/Main.fxml"));
+            Parent root = cargador.load();
+            
+            MainController controller = cargador
+                    .<MainController>getController();
+            controller.initStage(this.stage, this.gym);
+            
+            Scene scene = new Scene(root);
+            
+            this.stage.setScene(scene);
+            this.stage.show();
+        }catch(IOException e){}
+    }
     
     
    private class MyService extends Service<Void> {
-
+       protected long sumTime;
+       
         @Override
         protected Task<Void> createTask() {
             return new Task<Void>() {
                 protected boolean ended = false;
                 protected int actualTime;
-                protected long sumTime;
+                
                 protected int contador, resto;
                                 
                 void calcula() {                    
@@ -298,8 +350,21 @@ public class CronoController implements Initializable{
                     this.actualTime = 100000;
                     super.cancelled();
                     prevTime = System.currentTimeMillis();
-                    if(ended) Platform.runLater(() -> { tiempo.setValue(sumTime / 60 + ":"
-                            + sumTime % 60); });
+                    if(ended) {
+                        segundosFinal.setText(sumTime / 60 + ":" + sumTime % 60);
+                        
+                        atrasButton.setDisable(true);
+                        
+                        ocultarFin0.setVisible(false);
+                        ocultarFin1.setVisible(false);
+                        ocultarFin2.setVisible(false);
+                        ocultarFin3.setVisible(false);
+                        ocultarFin4.setVisible(false);
+                        ocultarFin5.setVisible(false);
+                        
+                        finButton.setVisible(true);
+                        finText.setVisible(true);
+                    }
                 }
             };
         }
