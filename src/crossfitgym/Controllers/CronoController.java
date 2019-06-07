@@ -221,7 +221,7 @@ public class CronoController implements Initializable{
         while(!this.nomGrupo.equals(gym.getGrupos().get(i).getNombre())) i++;
         
         System.err.println(gym == null);
-        System.err.println(gym.getGrupos().get(i));
+        System.err.println(gym.getGrupos().get(i).getNombre());
         
         gym.getGrupos().get(i).getSesiones().add(
                 new Sesion( LocalDateTime.now(), this.sTipo, crono.sumTime)

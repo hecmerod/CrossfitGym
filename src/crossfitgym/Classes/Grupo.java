@@ -7,7 +7,10 @@ public class Grupo implements Serializable{
     private String nombre, descripcion;
     private ArrayList<Sesion> sesiones;
     
-    public Grupo(String n, String d) { this.nombre = n; this.descripcion = d; }
+    public Grupo(String n, String d) {
+        this.nombre = n; this.descripcion = d; 
+        sesiones = new ArrayList();
+    }
     
     public String getNombre() {return nombre;}
     public String getDescripcion() {return descripcion;}    

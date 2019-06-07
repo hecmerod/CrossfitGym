@@ -2,6 +2,7 @@ package crossfitgym.Controllers;
 
 import crossfitgym.Classes.Grupo;
 import crossfitgym.Classes.Gym;
+import crossfitgym.Classes.Sesion;
 import crossfitgym.Classes.SesionTipo;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -21,6 +22,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -70,6 +73,10 @@ public class MainController implements Initializable {
     private HBox separador;
     @FXML
     private ImageView logoGrande;
+    @FXML
+    private Label tituloGrupo;
+    @FXML
+    private PieChart pieChart;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -223,7 +230,34 @@ public class MainController implements Initializable {
     private void isSelectedG(MouseEvent event) {
         int i = listViewGrupos.getSelectionModel().getSelectedIndex();
         
-        if(i >= 0) {
+        if(i >= 0 && !this.gym.getGrupos().get(i).getSesiones().isEmpty()) {
+            
+            String[] nSesion = new String[this.gym.getGrupos()
+                                            .get(i).getSesiones().size()];
+            int[] numeroSesion = new int[this.gym.getGrupos()
+                                            .get(i).getSesiones().size()];
+            for(Sesion s : this.gym.getGrupos().get(i).getSesiones()) {
+                for(int j = 0; j < nSesion.length; j++) {
+                    if(nSesion[j] == null) {
+                        nSesion[j] = s.getTipo().getNombre();
+                        numeroSesion[j] = 1;
+                        break;
+                    }
+                    else if(nSesion[j].equals(s.getTipo().getNombre())) {
+                        numeroSesion[j]++; break;
+                    }
+                }
+            }
+            ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
+            for(int j = 0; j < nSesion.length; j++) {
+                pieChartData.add(
+                        new PieChart.Data(nSesion[j],
+                                numeroSesion[j])
+                );
+            }
+            
+            pieChart.setData(pieChartData);
+            
             graficasGrupo.setVisible(true);
             separador.setVisible(true); 
             logoGrande.setVisible(false);
